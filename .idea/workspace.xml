@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="efbdb2b9-0f28-4040-aba6-4a7be1dc9dda" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/cfr_pull.exe" afterPath="$PROJECT_DIR$/dist/cfr_pull.exe" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/library.zip" afterPath="$PROJECT_DIR$/dist/library.zip" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cfr_pull.py" afterPath="$PROJECT_DIR$/cfr_pull.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="CFR_PULL.iws" />
@@ -32,7 +28,7 @@
       <file leaf-file-name="cfr_pull.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cfr_pull.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="604" column="0" selection-start="29407" selection-end="29407" vertical-scroll-proportion="0.32195845" vertical-offset="10051" max-vertical-offset="11662">
+            <state line="604" column="0" selection-start="29407" selection-end="29407" vertical-scroll-proportion="1.3339882" vertical-offset="8910" max-vertical-offset="11662">
               <folding>
                 <element signature="e#460#469#0" expanded="true" />
               </folding>
@@ -425,13 +421,18 @@
       <created>1387229821067</created>
       <updated>1387229821067</updated>
     </task>
+    <task id="LOCAL-00001" summary="Changed so that &lt;EFFDATES&gt; tag now contains the entire source line and EFFDATE= attribute either the first date or 'YYYY0000' entry">
+      <created>1390517049038</created>
+      <updated>1390517049038</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32950193" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32950193" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -587,7 +588,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cfr_pull.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="604" column="0" selection-start="29407" selection-end="29407" vertical-scroll-proportion="0.32195845" vertical-offset="10051" max-vertical-offset="11662">
+        <state line="604" column="0" selection-start="29407" selection-end="29407" vertical-scroll-proportion="1.3339882" vertical-offset="8910" max-vertical-offset="11662">
           <folding>
             <element signature="e#460#469#0" expanded="true" />
           </folding>
