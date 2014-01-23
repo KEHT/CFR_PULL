@@ -23,6 +23,7 @@ import re
 import collections
 from docopt import docopt
 from datetime import date, datetime
+from collections import defaultdict
 
 try:
     from schema import Schema, And, Or, Use, SchemaError
@@ -369,7 +370,8 @@ def omega_array():
         [re.compile(re.escape("</CFRDOC>"), re.DOTALL), "\n\n</CFRDOC>"],
         [re.compile("(?<!\n{2})<SECTION>", re.DOTALL), "\n<SECTION>"],
         [re.compile("<PRTPAG.*>\n?", re.MULTILINE), ""],
-        [re.compile("\n{0,2}^.*\n.*\n.*?<SUBJECT>\[Removed\]\.?|\n{0,2}^.*\n.*\n.*?<SUBJECT>\[Amended\]\.?", re.MULTILINE), ""],
+        [re.compile("\n{0,2}^.*\n.*\n.*?<SUBJECT>\[Removed\]\.?|\n{0,2}^.*\n.*\n.*?<SUBJECT>\[Amended\]\.?",
+                    re.MULTILINE), ""],
     ]
     return alpha_array() + list_regex
 
@@ -560,31 +562,40 @@ def partext(temp_file, file_date):
     vol_num = re.findall('<VOL>(\d*)', file_string)[0]
 
     # Get a dictionary of Effective dates and their location for attaching to REGTEXT
-    effdates_info = dict()
+    effdates_info = defaultdict(list)
+    effdates_info[0].append(datetime.strptime(eff_date, "%Y%m%d"))
+    effdates_info[0].append("Pull date: {0:%B} {0.day}, {0:%Y}".format(datetime.strptime(eff_date, "%Y%m%d")))
     for eff_date_itr in re.finditer(re.compile("<EFFDATE><HED>DATES.*\n?<P>(.*)", re.MULTILINE), file_string):
-        eff_date_str = re.findall("(\w*) (\d{1,2}), (\d{4}).*$", eff_date_itr.group())
-        if eff_date_str:
-            effdates_info[eff_date_itr.start()] = datetime.strptime(" ".join(str(i) for i in eff_date_str[0]),
-                                                                    "%B %d %Y")
+        if eff_date_itr.group():
+            eff_date_str = re.findall("(\w*) (\d{1,2}), (\d{4}).*$", eff_date_itr.group())
+            effdates_info[eff_date_itr.start()].append(
+                datetime.strptime(" ".join(str(i) for i in eff_date_str[0]), "%B %d %Y"))
+            effdates_info[eff_date_itr.start()].append(eff_date_itr.group(1))
         else:
-            effdates_info[eff_date_itr.start()] = None
+            effdates_info[eff_date_itr.start()].append(None)
+            effdates_info[eff_date_itr.start()].append(eff_date_itr.group(1))
 
     # Get a dictionary of PRTPAGE tag numbers and their location for attaching to REGTEXT
     prtpage_info = dict()
+    prtpage_info[0] = ['00000']
     for prt_page_itr in re.finditer(re.compile("\s*<PRTPAGE P=\'(\d+)\'>\s*"), file_string):
-        pg_num = re.findall("\d+", prt_page_itr.group())
-        prtpage_info[prt_page_itr.start()] = pg_num
+        if prt_page_itr.group():
+            pg_num = re.findall("\d+", prt_page_itr.group())
+            prtpage_info[prt_page_itr.start()] = pg_num
+        else:
+            prtpage_info[prt_page_itr.start()] = '00000'
 
+    # Retrieve REGTEXT clauses and attach dates and page number tags and attributes to them
     id_seq = 0
     for reg in re.finditer('(<REGTEXT TITLE.*?</REGTEXT>)', file_string, re.S):
         id_seq += 1
         reg_eff_date = get_from_dict(reg.start(), effdates_info)
-        if reg_eff_date:
-            effdate_attrib = reg_eff_date.strftime("%Y%m%d")
-            effdate_element = "{0:%B} {0.day}, {0:%Y}".format(reg_eff_date)
+        if reg_eff_date[0]:
+            effdate_attrib = reg_eff_date[0].strftime("%Y%m%d")
+            effdate_element = reg_eff_date[1]
         else:
-            effdate_attrib = '00000000'
-            effdate_element = 'Not Specified'
+            effdate_attrib = "{0:%Y}0000".format(datetime.now())
+            effdate_element = reg_eff_date[1]
         reg_prt_num = get_from_dict(reg.start(), prtpage_info)
         regtxt_attrb = ' EFFDATE=\'' + effdate_attrib + '\' ID=\'' + eff_date + '-' + str(id_seq) + \
                        '\' FRPAGE=\'' + vol_num + 'FR' + reg_prt_num[
