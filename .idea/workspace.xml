@@ -29,7 +29,7 @@
       <file leaf-file-name="cfr_pull.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cfr_pull.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="605" column="62" selection-start="29610" selection-end="29610" vertical-scroll-proportion="0.5083333" vertical-offset="9980" max-vertical-offset="11781">
+            <state line="371" column="28" selection-start="21621" selection-end="21621" vertical-scroll-proportion="0.33333334" vertical-offset="6107" max-vertical-offset="11798">
               <folding>
                 <element signature="e#460#469#0" expanded="true" />
               </folding>
@@ -416,7 +416,11 @@
       <created>1390517297791</created>
       <updated>1390517297791</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="1. Corrected an error reading &amp; writing files when not everything was read (using binary now)&#10;2. Corrected date time in attribute and EFFDATE">
+      <created>1390855210690</created>
+      <updated>1390855210690</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -451,19 +455,20 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="Changed so that &lt;EFFDATES&gt; tag now contains the entire source line and EFFDATE= attribute either the first date or 'YYYY0000' entry" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed so that &lt;EFFDATES&gt; tag now contains the entire source line and EFFDATE= attribute either the first date or 'YYYY0000' entry" />
+    <MESSAGE value="1. Corrected an error reading &amp; writing files when not everything was read (using binary now)&#10;2. Corrected date time in attribute and EFFDATE" />
+    <option name="LAST_COMMIT_MESSAGE" value="1. Corrected an error reading &amp; writing files when not everything was read (using binary now)&#10;2. Corrected date time in attribute and EFFDATE" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/cfr_pull.py</url>
-          <line>533</line>
+          <line>534</line>
           <option name="timeStamp" value="59" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/cfr_pull.py</url>
-          <line>520</line>
+          <line>521</line>
           <option name="timeStamp" value="60" />
         </line-breakpoint>
       </breakpoints>
@@ -581,7 +586,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cfr_pull.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="605" column="62" selection-start="29610" selection-end="29610" vertical-scroll-proportion="0.5083333" vertical-offset="9980" max-vertical-offset="11781">
+        <state line="371" column="28" selection-start="21621" selection-end="21621" vertical-scroll-proportion="0.33333334" vertical-offset="6107" max-vertical-offset="11798">
           <folding>
             <element signature="e#460#469#0" expanded="true" />
           </folding>

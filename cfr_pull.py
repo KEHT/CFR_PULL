@@ -323,8 +323,8 @@ def alpha_array():
         [re.compile(re.escape(" STRIP='YES'"), re.MULTILINE), ""],
         [re.compile(re.escape(" HTYPE='CENTER'"), re.MULTILINE), ""],
         [re.compile(re.escape(" ROTATION='P'"), re.MULTILINE), ""],
-        [re.compile(re.escape("!--"), re.MULTILINE), ""],
-        [re.compile(re.escape("-->"), re.MULTILINE), ">"],
+        # [re.compile(re.escape("!--"), re.MULTILINE), ""],
+        # [re.compile(re.escape("-->"), re.MULTILINE), ">"],
         [re.compile("<\?USGPO Galley Info Start\:.*?Galley Info End\?>", re.DOTALL), ""],
     ]
     return list_regex
@@ -369,9 +369,10 @@ def omega_array():
         # [re.compile(re.escape("<CFRDOC"), re.DOTALL), "\n\n\n<CFRDOC"],
         [re.compile(re.escape("</CFRDOC>"), re.DOTALL), "\n\n</CFRDOC>"],
         [re.compile("(?<!\n{2})<SECTION>", re.DOTALL), "\n<SECTION>"],
-        [re.compile("<PRTPAG.*>\n?", re.MULTILINE), ""],
+        [re.compile("<PRTPAG.*?>\n?", re.MULTILINE), ""],
         [re.compile("\n{0,2}^.*\n.*\n.*?<SUBJECT>\[Removed\]\.?|\n{0,2}^.*\n.*\n.*?<SUBJECT>\[Amended\]\.?",
                     re.MULTILINE), ""],
+        [re.compile("<(GPH.*?)>\s*?(<GID>.*?</GPH>)\s*?<!--(GPH.*?)-->", re.MULTILINE), "<\g<3>\>\n\g<2>\n"],
     ]
     return alpha_array() + list_regex
 
