@@ -125,8 +125,8 @@ def alpha_array():
         [re.compile("\n\?>", re.DOTALL), "?>"],
         [re.compile("\:\s\n<", re.DOTALL), ":\n<"],
         [re.compile(re.escape("<RULE>"), re.MULTILINE), "\n\n<RULE>"],
-        [re.compile(re.escape("<?USGPO Galley End:?>"), re.MULTILINE), ""],
-        [re.compile(re.escape("<?USGPO Galley End: ?>"), re.MULTILINE), ""],
+        [re.compile("<\?USGPO Galley End:\s*\?>", re.MULTILINE), ""],
+        # [re.compile(re.escape("<?USGPO Galley End: ?>"), re.MULTILINE), ""],
         [re.compile(re.escape("<PART>"), re.MULTILINE), "\n<PART>"],
         [re.compile("\n\n<PART>", re.MULTILINE), "\n<PART>"],
         [re.compile(re.escape("<SECTION>"), re.MULTILINE), "\n<SECTION>"],
@@ -305,9 +305,9 @@ def alpha_array():
         [re.compile(re.escape("r of the <E T='04'>Federal Register.</E>"), re.MULTILINE), "r of the Federal Register."],
         [re.compile(re.escape("r of the <E T='04'>Federal Register,</E>"), re.MULTILINE), "r of the Federal Register,"],
         [re.compile(re.escape("ce of the <E T='04'>Federal Register.</E>"), re.MULTILINE),
-         "ce of the Federal Register."],
+        "ce of the Federal Register."],
         [re.compile(re.escape("ce of the <E T='04'>Federal Register,</E>"), re.MULTILINE),
-         "ce of the Federal Register,"],
+        "ce of the Federal Register,"],
         [re.compile(re.escape("<FP1-2>"), re.MULTILINE), "<P-2>"],
         [re.compile(re.escape("<FP2-2>"), re.MULTILINE), "<FP2>"],
         [re.compile(re.escape("<CITA TYPE='N'>"), re.MULTILINE), "<CITA>"],
@@ -410,10 +410,8 @@ def replace(filename, regexes):
     @param filename: filename where replacements should take place
     @param regexes: list of compiled replacement patterns [search pattern, replacement string]
     """
-    # Read contents from file as a single string
-    file_handle = open(filename, 'r')
-    file_string = file_handle.read()
-    file_handle.close()
+    with open(filename, 'rb') as content_file:
+        file_string = content_file.read()
 
     # Use RE package to allow for replacement (also allowing for (multiline) REGEX)
     for pattern in regexes:
@@ -424,9 +422,9 @@ def replace(filename, regexes):
 
     # Write contents to file.
     # Using mode 'w' truncates the file.
-    file_handle = open(filename, 'w')
-    file_handle.write(file_string)
-    file_handle.close()
+    with open(filename, 'wb') as file_handle:
+        file_handle.write(file_string)
+    return
 
 
 def move_files(from_dir, to_dir, file_date):
@@ -554,9 +552,8 @@ def partext(temp_file, file_date):
         eff_date = datetime.strptime(file_date, "%m%d%y").strftime("%Y%m%d")
     if os.path.isfile(temp_file):
         # Read contents from file as a single string
-        file_handle = open(temp_file, 'r')
-        file_string = file_handle.read()
-        file_handle.close()
+        with open(temp_file, 'rb') as content_file:
+            file_string = content_file.read()
 
     new_file_string = ''
     vol_num = re.findall('<VOL>(\d*)', file_string)[0]
@@ -567,10 +564,20 @@ def partext(temp_file, file_date):
     effdates_info[0].append("Pull date: {0:%B} {0.day}, {0:%Y}".format(datetime.strptime(eff_date, "%Y%m%d")))
     for eff_date_itr in re.finditer(re.compile("<EFFDATE><HED>DATES.*\n?<P>(.*)", re.MULTILINE), file_string):
         if eff_date_itr.group():
-            eff_date_str = re.findall("(\w*) (\d{1,2}), (\d{4}).*$", eff_date_itr.group())
-            effdates_info[eff_date_itr.start()].append(
-                datetime.strptime(" ".join(str(i) for i in eff_date_str[0]), "%B %d %Y"))
-            effdates_info[eff_date_itr.start()].append(eff_date_itr.group(1))
+            eff_date_str = re.findall("(\w*) (\d{1,2}), (\d{4})", eff_date_itr.group())
+
+            if len(eff_date_str) == 1:
+                effdates_info[eff_date_itr.start()].append(
+                    datetime.strptime(" ".join(str(i) for i in eff_date_str[0]), "%B %d %Y"))
+                effdates_info[eff_date_itr.start()].append("{0:%B} {0.day}, {0:%Y}".format(
+                    datetime.strptime(" ".join(str(i) for i in eff_date_str[0]), "%B %d %Y")))
+            elif len(eff_date_str) > 1:
+                effdates_info[eff_date_itr.start()].append(
+                    datetime.strptime(" ".join(str(i) for i in eff_date_str[0]), "%B %d %Y"))
+                effdates_info[eff_date_itr.start()].append(eff_date_itr.group(1))
+            else:
+                effdates_info[eff_date_itr.start()].append(None)
+                effdates_info[eff_date_itr.start()].append(eff_date_itr.group(1))
         else:
             effdates_info[eff_date_itr.start()].append(None)
             effdates_info[eff_date_itr.start()].append(eff_date_itr.group(1))
@@ -594,7 +601,7 @@ def partext(temp_file, file_date):
             effdate_attrib = reg_eff_date[0].strftime("%Y%m%d")
             effdate_element = reg_eff_date[1]
         else:
-            effdate_attrib = "{0:%Y}0000".format(datetime.now())
+            effdate_attrib = "{0:%Y}0000".format(datetime.strptime(eff_date, "%Y%m%d"))
             effdate_element = reg_eff_date[1]
         reg_prt_num = get_from_dict(reg.start(), prtpage_info)
         regtxt_attrb = ' EFFDATE=\'' + effdate_attrib + '\' ID=\'' + eff_date + '-' + str(id_seq) + \
@@ -604,7 +611,7 @@ def partext(temp_file, file_date):
         new_file_string += reg_txt
     new_file_string = "<CFRDOC ED='XX' REV='XX'>\n\n" + new_file_string + "\n</CFRDOC>"
     new_file_name = os.path.join(os.path.dirname(temp_file), eff_date + ".AMD")
-    with open(new_file_name, "w") as text_file:
+    with open(new_file_name, "wb") as text_file:
         text_file.write(new_file_string)
     return new_file_name
 
