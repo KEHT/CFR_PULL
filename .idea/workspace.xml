@@ -29,7 +29,7 @@
       <file leaf-file-name="cfr_pull.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cfr_pull.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="371" column="28" selection-start="21621" selection-end="21621" vertical-scroll-proportion="0.33333334" vertical-offset="6107" max-vertical-offset="11798">
+            <state line="128" column="0" selection-start="5569" selection-end="5569" vertical-scroll-proportion="-4.855" vertical-offset="5089" max-vertical-offset="11764">
               <folding>
                 <element signature="e#460#469#0" expanded="true" />
               </folding>
@@ -181,7 +181,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="CFR_PULL" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cfr_pull.py" />
-      <option name="PARAMETERS" value="auto E:\Download E:\PDF --date=110113" />
+      <option name="PARAMETERS" value="auto E:\Download E:\PDF --date=111813" />
       <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
@@ -420,7 +420,11 @@
       <created>1390855210690</created>
       <updated>1390855210690</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="1.  Added regex to handle &lt;GPH&gt; tag edits&#10;2. Fixed removal of &lt;PRTPAGE ..&gt; tag">
+      <created>1390860492613</created>
+      <updated>1390860492613</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -436,7 +440,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34961686" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37547892" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37547892" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37547892" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -456,19 +460,20 @@
     </option>
     <MESSAGE value="Changed so that &lt;EFFDATES&gt; tag now contains the entire source line and EFFDATE= attribute either the first date or 'YYYY0000' entry" />
     <MESSAGE value="1. Corrected an error reading &amp; writing files when not everything was read (using binary now)&#10;2. Corrected date time in attribute and EFFDATE" />
-    <option name="LAST_COMMIT_MESSAGE" value="1. Corrected an error reading &amp; writing files when not everything was read (using binary now)&#10;2. Corrected date time in attribute and EFFDATE" />
+    <MESSAGE value="1.  Added regex to handle &lt;GPH&gt; tag edits&#10;2. Fixed removal of &lt;PRTPAGE ..&gt; tag" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.  Added regex to handle &lt;GPH&gt; tag edits&#10;2. Fixed removal of &lt;PRTPAGE ..&gt; tag" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/cfr_pull.py</url>
-          <line>534</line>
+          <line>532</line>
           <option name="timeStamp" value="59" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/cfr_pull.py</url>
-          <line>521</line>
+          <line>519</line>
           <option name="timeStamp" value="60" />
         </line-breakpoint>
       </breakpoints>
@@ -586,7 +591,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cfr_pull.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="371" column="28" selection-start="21621" selection-end="21621" vertical-scroll-proportion="0.33333334" vertical-offset="6107" max-vertical-offset="11798">
+        <state line="128" column="0" selection-start="5569" selection-end="5569" vertical-scroll-proportion="-4.855" vertical-offset="5089" max-vertical-offset="11764">
           <folding>
             <element signature="e#460#469#0" expanded="true" />
           </folding>

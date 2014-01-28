@@ -120,13 +120,12 @@ def alpha_array():
         [re.compile(re.escape("</VOL>"), re.MULTILINE), ""],
         [re.compile("\"", re.DOTALL), "'"],
         [re.compile("\n\n", re.DOTALL), "\n"],
-        [re.compile("\s\n\s", re.DOTALL), "\n"],
+        [re.compile("\s*\n\s*", re.DOTALL), "\n"],
         [re.compile("\n\s\n", re.DOTALL), "\n"],
         [re.compile("\n\?>", re.DOTALL), "?>"],
         [re.compile("\:\s\n<", re.DOTALL), ":\n<"],
         [re.compile(re.escape("<RULE>"), re.MULTILINE), "\n\n<RULE>"],
         [re.compile("<\?USGPO Galley End:\s*\?>", re.MULTILINE), ""],
-        # [re.compile(re.escape("<?USGPO Galley End: ?>"), re.MULTILINE), ""],
         [re.compile(re.escape("<PART>"), re.MULTILINE), "\n<PART>"],
         [re.compile("\n\n<PART>", re.MULTILINE), "\n<PART>"],
         [re.compile(re.escape("<SECTION>"), re.MULTILINE), "\n<SECTION>"],
@@ -323,9 +322,8 @@ def alpha_array():
         [re.compile(re.escape(" STRIP='YES'"), re.MULTILINE), ""],
         [re.compile(re.escape(" HTYPE='CENTER'"), re.MULTILINE), ""],
         [re.compile(re.escape(" ROTATION='P'"), re.MULTILINE), ""],
-        # [re.compile(re.escape("!--"), re.MULTILINE), ""],
-        # [re.compile(re.escape("-->"), re.MULTILINE), ">"],
         [re.compile("<\?USGPO Galley Info Start\:.*?Galley Info End\?>", re.DOTALL), ""],
+        [re.compile("\r", re.MULTILINE), "\n"],
     ]
     return list_regex
 
@@ -366,13 +364,13 @@ def omega_array():
         [re.compile(re.escape("<E T='51'>16</E>"), re.DOTALL), "<SU>16</SU>"],
         [re.compile(re.escape("<E T='51'>17</E>"), re.DOTALL), "<SU>17</SU>"],
         [re.compile(re.escape("<SUBJECT>"), re.MULTILINE), "\n<SUBJECT>"],
-        # [re.compile(re.escape("<CFRDOC"), re.DOTALL), "\n\n\n<CFRDOC"],
         [re.compile(re.escape("</CFRDOC>"), re.DOTALL), "\n\n</CFRDOC>"],
         [re.compile("(?<!\n{2})<SECTION>", re.DOTALL), "\n<SECTION>"],
         [re.compile("<PRTPAG.*?>\n?", re.MULTILINE), ""],
-        [re.compile("\n{0,2}^.*\n.*\n.*?<SUBJECT>\[Removed\]\.?|\n{0,2}^.*\n.*\n.*?<SUBJECT>\[Amended\]\.?",
+        [re.compile("\n{0,2}^.*\n.*\n.*?<SUBJECT>\[Removed.*?\]\.?|\n{0,2}^.*\n.*\n.*?<SUBJECT>\[Amended.*?\]\.?",
                     re.MULTILINE), ""],
         [re.compile("<(GPH.*?)>\s*?(<GID>.*?</GPH>)\s*?<!--(GPH.*?)-->", re.MULTILINE), "<\g<3>\>\n\g<2>\n"],
+        [re.compile("<(MATH.*?)>\s*?(<MID>.*?</MATH>)\s*?<!--(MATH.*?)-->", re.MULTILINE), "<\g<3>\>\n\g<2>\n"],
     ]
     return alpha_array() + list_regex
 
@@ -423,7 +421,7 @@ def replace(filename, regexes):
 
     # Write contents to file.
     # Using mode 'w' truncates the file.
-    with open(filename, 'wb') as file_handle:
+    with open(filename, 'w') as file_handle:
         file_handle.write(file_string)
     return
 
