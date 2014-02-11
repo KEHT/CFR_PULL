@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="efbdb2b9-0f28-4040-aba6-4a7be1dc9dda" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cfr_pull.py" afterPath="$PROJECT_DIR$/cfr_pull.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="CFR_PULL.iws" />
@@ -28,7 +29,7 @@
       <file leaf-file-name="cfr_pull.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cfr_pull.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="128" column="0" selection-start="5569" selection-end="5569" vertical-scroll-proportion="-4.855" vertical-offset="5089" max-vertical-offset="11764">
+            <state line="71" column="60" selection-start="2110" selection-end="2110" vertical-scroll-proportion="-8.211667" vertical-offset="6134" max-vertical-offset="11883">
               <folding>
                 <element signature="e#460#469#0" expanded="true" />
               </folding>
@@ -127,7 +128,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -148,18 +148,19 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="settings.github" />
-    <property name="last_opened_file_path" value="C:/Program Files (x86)/Git/bin/git.exe" />
+    <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
+    <property name="last_opened_file_path" value="C:/Program Files (x86)/Git/bin/git.exe" />
     <property name="FullScreen" value="false" />
     <property name="last.edited.regexp" value="&lt;REGTEXT TITLE=' 26 ' PART=' 1 '&gt;&#10;&lt;PART&gt;&lt;HED&gt;PART 1&amp;mdash;INCOME TAXES&#10;&lt;AMDPAR&gt;&lt;E T='04'&gt;Paragraph 1.&lt;/E&gt; The authority citation for part 1 is amended by revising the entry for &amp;sect;&amp;thnsp;1.863&amp;ndash;7 and adding an entry for &amp;sect;&amp;thnsp;1.871&amp;ndash;15 to read in part as follows:&#10;&lt;AUTH&gt;&lt;HED&gt;Authority:&lt;P&gt;26 U.S.C. 7805 *&amp;ensp;*&amp;ensp;*&#10;&#10;&lt;?USGPO Galley Info Start:{movepis}&#10;! RULES R33 PC\J\232001-A05DE0-068-*****-*****-&#10; -Name: Joe Butrim&#10; -Payroll No: 08947&#10; -Folios: E734-737&#10; -Date: 12/03/2013&#10;[FEDREG][VOL]*[/VOL][NO]*[/NO][DATE]*[/DATE][RULES]&#10;[RULE][PREAMB][AGENCY]*[/AGENCY][SUBJECT]*[/SUBJECT][/PREAMB]&#10;[SUPLINF][HED]*[/HED][REGTEXT][P]*[/P]?&gt;&lt;?USGPO Galley Info End?&gt;&#10;&#10;&lt;EXTRACT&gt;&lt;P&gt;&amp;sect;&amp;thnsp;1.863&amp;ndash;7 also issued under 26 U.S.C. 863(a) and 871(m). *&amp;ensp;*&amp;ensp;* &amp;sect;&amp;thnsp;1.871&amp;ndash;15 also issued under 26 U.S.C. 871(m). *&amp;ensp;*&amp;ensp;*&lt;/EXTRACT&gt;&lt;/REGTEXT&gt;&#10;&lt;Q P='02'&gt;" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -180,7 +181,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="CFR_PULL" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cfr_pull.py" />
-      <option name="PARAMETERS" value="auto E:\Download E:\PDF --date=111813" />
+      <option name="PARAMETERS" value="auto E:\Download E:\PDF --date=020714" />
       <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
@@ -427,14 +428,17 @@
       <created>1390928190522</created>
       <updated>1390928190522</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="1.  Added regex to handle &lt;MATH&gt; tag edits&#10;2. Fixed &lt;CR&gt;&lt;LF&gt;&#10;3. Fixe regex for [removed]/[amended] sections">
+      <created>1390945216042</created>
+      <updated>1390945216042</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32950193" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -449,6 +453,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329849" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32950193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -469,22 +474,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/cfr_pull.py</url>
-          <line>532</line>
-          <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/cfr_pull.py</url>
-          <line>519</line>
-          <option name="timeStamp" value="60" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="61" />
+      <option name="time" value="62" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -567,23 +560,17 @@
     </entry>
     <entry file="file://$USER_HOME$/.PyCharm30/system/python_stubs/-762174762/datetime.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="162" column="6" selection-start="5105" selection-end="5105" vertical-scroll-proportion="0.0" vertical-offset="2537" max-vertical-offset="10761">
-          <folding />
-        </state>
+        <state line="162" column="6" selection-start="5105" selection-end="5105" vertical-scroll-proportion="0.0" vertical-offset="2537" max-vertical-offset="10761" />
       </provider>
     </entry>
     <entry file="file://C:/Python27/Lib/_strptime.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="324" column="0" selection-start="14026" selection-end="14026" vertical-scroll-proportion="0.3323124" vertical-offset="5189" max-vertical-offset="7939">
-          <folding />
-        </state>
+        <state line="324" column="0" selection-start="14026" selection-end="14026" vertical-scroll-proportion="0.3323124" vertical-offset="5189" max-vertical-offset="7939" />
       </provider>
     </entry>
     <entry file="file://C:/Python27/Lib/shutil.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="0" selection-start="1284" selection-end="1284" vertical-scroll-proportion="0.0" vertical-offset="531" max-vertical-offset="9452">
-          <folding />
-        </state>
+        <state line="50" column="0" selection-start="1284" selection-end="1284" vertical-scroll-proportion="0.0" vertical-offset="531" max-vertical-offset="9452" />
       </provider>
     </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
@@ -595,7 +582,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cfr_pull.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="128" column="0" selection-start="5569" selection-end="5569" vertical-scroll-proportion="-4.855" vertical-offset="5089" max-vertical-offset="11764">
+        <state line="71" column="60" selection-start="2110" selection-end="2110" vertical-scroll-proportion="-8.211667" vertical-offset="6134" max-vertical-offset="11883">
           <folding>
             <element signature="e#460#469#0" expanded="true" />
           </folding>

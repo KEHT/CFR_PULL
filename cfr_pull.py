@@ -160,8 +160,8 @@ def alpha_array():
         [re.compile(":\n<P>", re.MULTILINE), ":<P>"],
         [re.compile("^<PART><HED>.*\n\n{0,2}(?=<AMDPAR>)", re.MULTILINE), ""],
         [re.compile("^<SUBPART><HED>.*\n\n{0,2}(?=<AMDPAR>)", re.MULTILINE), ""],
-        [re.compile(re.escape("<AMDPAR>"), re.MULTILINE), "\n<P>"],
-        [re.compile("\n\n<AMDPAR>", re.MULTILINE), "\n<P>"],
+        [re.compile("\s*<AMDPAR>", re.MULTILINE), "\n<P>"],
+        # [re.compile("\n\n<AMDPAR>", re.MULTILINE), "\n<P>"],
         [re.compile("<EXTRACT>\n", re.DOTALL), "<EXTRACT>"],
         [re.compile(re.escape("<SECTNO>&"), re.MULTILINE), "\n<SECTNO>&"],
         [re.compile("\n\n<SECTNO>&", re.MULTILINE), "\n<SECTNO>&"],
@@ -341,7 +341,7 @@ def omega_array():
         [re.compile("\. \n</", re.DOTALL), ".</"],
         [re.compile(" \n</", re.DOTALL), "</"],
         [re.compile("\n</", re.DOTALL), "</"],
-        # [re.compile(":\n<P>", re.DOTALL), ":<P>"],
+        [re.compile("(?<=Authority:)\n<P>|(?<=Note:)\n<P>|(?<=Source:)\n<P>|(?<=Example:)\n<P>", re.MULTILINE), "<P>"],
         [re.compile("\n\n", re.DOTALL), "\n"],
         [re.compile("(?<=\S)(?<!<STARS>)</REGTEXT>", re.DOTALL), "\n</REGTEXT>"],
         [re.compile("</REGTEXT>\s+<REGTEXT", re.DOTALL), "</REGTEXT>\n\n<REGTEXT"],
@@ -365,12 +365,19 @@ def omega_array():
         [re.compile(re.escape("<E T='51'>17</E>"), re.DOTALL), "<SU>17</SU>"],
         [re.compile(re.escape("<SUBJECT>"), re.MULTILINE), "\n<SUBJECT>"],
         [re.compile(re.escape("</CFRDOC>"), re.DOTALL), "\n\n</CFRDOC>"],
-        [re.compile("(?<!\n{2})<SECTION>", re.DOTALL), "\n<SECTION>"],
+        # [re.compile("(?<!\n{2,n})<SECTION>", re.DOTALL), "\n<SECTION>"],
         [re.compile("<PRTPAG.*?>\n?", re.MULTILINE), ""],
-        [re.compile("\n{0,2}^.*\n.*\n.*?<SUBJECT>\[Removed.*?\]\.?|\n{0,2}^.*\n.*\n.*?<SUBJECT>\[Amended.*?\]\.?",
-                    re.MULTILINE), ""],
-        [re.compile("<(GPH.*?)>\s*?(<GID>.*?</GPH>)\s*?<!--(GPH.*?)-->", re.MULTILINE), "<\g<3>\>\n\g<2>\n"],
-        [re.compile("<(MATH.*?)>\s*?(<MID>.*?</MATH>)\s*?<!--(MATH.*?)-->", re.MULTILINE), "<\g<3>\>\n\g<2>\n"],
+        [re.compile("\n{0,2}^(<SUBPART>.*\n|<PART>.*\n|<HD1>.*\n)?(<SECTION>.*\n)?.*\n.*?<SUBJECT>\[?Removed.*\]?\.?", re.MULTILINE), ""],
+        [re.compile("\n{0,2}^(<SUBPART>.*\n|<PART>.*\n|<HD1>.*\n)?(<SECTION>.*\n)?.*\n.*?<SUBJECT>\[?Amended.*\]?\.?", re.MULTILINE), ""],
+        [re.compile("\n{0,2}^(<SUBPART>.*\n|<PART>.*\n|<HD1>.*\n)?(<SECTION>.*\n)?.*\n.*?<SUBJECT>\[?Corrected.*\]?\.?", re.MULTILINE), ""],
+        [re.compile("\n{0,2}^(<SUBPART>.*\n|<PART>.*\n|<HD1>.*\n)?(<SECTION>.*\n)?.*\n.*?<SUBJECT>\[?Redesignated.*\]?\.?", re.MULTILINE), ""],
+        [re.compile("<HD1>.*?\[Removed.*\]\n|<HD1>.*?\[?Amended.*\]?\n|<HD1>.*?\[?Corrected.*\]?\n", re.MULTILINE), ""],
+        [re.compile("<(GPH.*?)>\s*?(<GID>.*?</GPH>)\s*?<!--(GPH.*?)-->", re.MULTILINE), "<\g<3>>\n\g<2>\n"],
+        [re.compile("<(MATH.*?)>\s*?(<MID>.*?</MATH>)\s*?<!--(MATH.*?)-->", re.MULTILINE), "<\g<3>>\n\g<2>\n"],
+        [re.compile("<BILCOD>.*\n", re.MULTILINE), ""],
+        [re.compile("<PART><HED>.*\n(?=<P>)", re.MULTILINE), ""],
+        [re.compile("<SUBPART><HED>.*\n", re.MULTILINE), ""],
+        [re.compile("<SUBCHAP><HED>.*\n", re.MULTILINE), ""],
     ]
     return alpha_array() + list_regex
 
@@ -561,7 +568,7 @@ def partext(temp_file, file_date):
     effdates_info = defaultdict(list)
     effdates_info[0].append(datetime.strptime(eff_date, "%Y%m%d"))
     effdates_info[0].append("Pull date: {0:%B} {0.day}, {0:%Y}".format(datetime.strptime(eff_date, "%Y%m%d")))
-    for eff_date_itr in re.finditer(re.compile("<EFFDATE><HED>DATES.*\n?<P>(.*)", re.MULTILINE), file_string):
+    for eff_date_itr in re.finditer(re.compile("DATE.?><HED>DATES.*\n?<P>(.*)", re.MULTILINE), file_string):
         if eff_date_itr.group():
             eff_date_str = re.findall("(\w*) (\d{1,2}), (\d{4})", eff_date_itr.group())
 
