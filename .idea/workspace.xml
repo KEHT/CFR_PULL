@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="efbdb2b9-0f28-4040-aba6-4a7be1dc9dda" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cfr_pull.py" afterPath="$PROJECT_DIR$/cfr_pull.py" />
+      <change type="DELETED" beforePath="E:\Users\sjohnson\PycharmProjects\CFR_PULL\naval_fate.py" afterPath="" />
+      <change type="DELETED" beforePath="E:\Users\sjohnson\PycharmProjects\CFR_PULL\schem_docopt.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/cfr_pull.exe" afterPath="$PROJECT_DIR$/dist/cfr_pull.exe" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/library.zip" afterPath="$PROJECT_DIR$/dist/library.zip" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="CFR_PULL.iws" />
@@ -29,7 +32,7 @@
       <file leaf-file-name="cfr_pull.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cfr_pull.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="60" selection-start="2110" selection-end="2110" vertical-scroll-proportion="-8.211667" vertical-offset="6134" max-vertical-offset="11883">
+            <state line="690" column="14" selection-start="33575" selection-end="33581" vertical-scroll-proportion="19.55" vertical-offset="0" max-vertical-offset="11883">
               <folding>
                 <element signature="e#460#469#0" expanded="true" />
               </folding>
@@ -40,7 +43,7 @@
       <file leaf-file-name="setup.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="23" selection-start="71" selection-end="71" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="153">
+            <state line="3" column="23" selection-start="71" selection-end="71" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="136">
               <folding />
             </state>
           </provider>
@@ -181,7 +184,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="CFR_PULL" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cfr_pull.py" />
-      <option name="PARAMETERS" value="auto E:\Download E:\PDF --date=020714" />
+      <option name="PARAMETERS" value="auto E:\Download E:\PDF" />
       <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
@@ -432,18 +435,23 @@
       <created>1390945216042</created>
       <updated>1390945216042</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Many fixes for regex:&#10;1. SUBPART&#10;2. GPH&#10;3. MATH&#10;4. BILCOD&#10;5. PART&#10;6. Date identification">
+      <created>1392154683627</created>
+      <updated>1392154683627</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32950193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18020834" sideWeight="0.6245211" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18020834" sideWeight="0.6245211" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34961686" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37547892" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -453,7 +461,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329849" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32950193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -470,7 +477,8 @@
     <MESSAGE value="1. Corrected an error reading &amp; writing files when not everything was read (using binary now)&#10;2. Corrected date time in attribute and EFFDATE" />
     <MESSAGE value="1.  Added regex to handle &lt;GPH&gt; tag edits&#10;2. Fixed removal of &lt;PRTPAGE ..&gt; tag" />
     <MESSAGE value="1.  Added regex to handle &lt;MATH&gt; tag edits&#10;2. Fixed &lt;CR&gt;&lt;LF&gt;&#10;3. Fixe regex for [removed]/[amended] sections" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.  Added regex to handle &lt;MATH&gt; tag edits&#10;2. Fixed &lt;CR&gt;&lt;LF&gt;&#10;3. Fixe regex for [removed]/[amended] sections" />
+    <MESSAGE value="Many fixes for regex:&#10;1. SUBPART&#10;2. GPH&#10;3. MATH&#10;4. BILCOD&#10;5. PART&#10;6. Date identification" />
+    <option name="LAST_COMMIT_MESSAGE" value="Many fixes for regex:&#10;1. SUBPART&#10;2. GPH&#10;3. MATH&#10;4. BILCOD&#10;5. PART&#10;6. Date identification" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -526,11 +534,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/schem_docopt.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="439" selection-end="439" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697" />
-      </provider>
-    </entry>
     <entry file="file://C:/Python27/Lib/genericpath.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="30" column="0" selection-start="829" selection-end="829" vertical-scroll-proportion="0.0" vertical-offset="283" max-vertical-offset="1870" />
@@ -544,18 +547,6 @@
     <entry file="file://C:/Python27/Lib/os.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="12682" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/naval_fate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="57" selection-start="672" selection-end="725" vertical-scroll-proportion="1.0110133" vertical-offset="0" max-vertical-offset="595" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="23" selection-start="71" selection-end="71" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="136">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.PyCharm30/system/python_stubs/-762174762/datetime.py">
@@ -580,9 +571,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="23" selection-start="71" selection-end="71" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="136">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cfr_pull.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="60" selection-start="2110" selection-end="2110" vertical-scroll-proportion="-8.211667" vertical-offset="6134" max-vertical-offset="11883">
+        <state line="690" column="14" selection-start="33575" selection-end="33581" vertical-scroll-proportion="19.55" vertical-offset="0" max-vertical-offset="11883">
           <folding>
             <element signature="e#460#469#0" expanded="true" />
           </folding>
