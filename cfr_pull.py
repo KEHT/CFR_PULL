@@ -393,15 +393,15 @@ def get_from_dict(val, my_dict, hilo="prev"):
     @return: value of that location
     """
     ret_value = None
-    od = collections.OrderedDict(sorted(my_dict.items()))
+    od = collections.OrderedDict(sorted(my_dict.items(), key=lambda t: t[0]))
     for case in switch(hilo):
         if case('prev'):
-            for k, v in od.iteritems():
+            for k, v in od.items():
                 if int(k) < val:
                     ret_value = v
             break
         if case('next'):
-            for k, v in od.iteritems():
+            for k, v in od.items():
                 if int(k) > val:
                     ret_value = val
     return ret_value
@@ -417,7 +417,7 @@ def replace(filename, regexes):
     @param regexes: list of compiled replacement patterns [search pattern, replacement string]
     """
     with open(filename, 'rb') as content_file:
-        file_string = content_file.read()
+        file_string = content_file.read().decode()
 
     # Use RE package to allow for replacement (also allowing for (multiline) REGEX)
     for pattern in regexes:
@@ -559,7 +559,7 @@ def partext(temp_file, file_date):
     if os.path.isfile(temp_file):
         # Read contents from file as a single string
         with open(temp_file, 'rb') as content_file:
-            file_string = content_file.read()
+            file_string = content_file.read().decode()
 
     new_file_string = ''
     vol_num = re.findall('<VOL>(\d*)', file_string)[0]
@@ -617,7 +617,7 @@ def partext(temp_file, file_date):
         new_file_string += reg_txt
     new_file_string = "<CFRDOC ED='XX' REV='XX'>\n\n" + new_file_string + "\n</CFRDOC>"
     new_file_name = os.path.join(os.path.dirname(temp_file), eff_date + ".AMD")
-    with open(new_file_name, "wb") as text_file:
+    with open(new_file_name, "w") as text_file:
         text_file.write(new_file_string)
     return new_file_name
 
