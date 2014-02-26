@@ -16,6 +16,7 @@ Options:
 
 __author__ = 'sjohnson'
 
+import sys
 import os
 import shutil
 import glob
@@ -160,6 +161,8 @@ def alpha_array():
         [re.compile(":\n<P>", re.MULTILINE), ":<P>"],
         [re.compile("^<PART><HED>.*\n\n{0,2}(?=<AMDPAR>)", re.MULTILINE), ""],
         [re.compile("^<SUBPART><HED>.*\n\n{0,2}(?=<AMDPAR>)", re.MULTILINE), ""],
+        [re.compile("^<Q P=.*\n\n{0,2}(?=<AMDPAR>)", re.MULTILINE), ""],
+        [re.compile("<SUBCHAP><HED>.*\n\n{0,2}(?=<AMDPAR>)", re.MULTILINE), ""],
         [re.compile("\s*<AMDPAR>", re.MULTILINE), "\n<P>"],
         # [re.compile("\n\n<AMDPAR>", re.MULTILINE), "\n<P>"],
         [re.compile("<EXTRACT>\n", re.DOTALL), "<EXTRACT>"],
@@ -375,9 +378,6 @@ def omega_array():
         [re.compile("<(GPH.*?)>\s*?(<GID>.*?</GPH>)\s*?<!--(GPH.*?)-->", re.MULTILINE), "<\g<3>>\n\g<2>\n"],
         [re.compile("<(MATH.*?)>\s*?(<MID>.*?</MATH>)\s*?<!--(MATH.*?)-->", re.MULTILINE), "<\g<3>>\n\g<2>\n"],
         [re.compile("<BILCOD>.*\n", re.MULTILINE), ""],
-        [re.compile("<PART><HED>.*\n(?=<P>)", re.MULTILINE), ""],
-        [re.compile("<SUBPART><HED>.*\n", re.MULTILINE), ""],
-        [re.compile("<SUBCHAP><HED>.*\n", re.MULTILINE), ""],
     ]
     return alpha_array() + list_regex
 
@@ -500,20 +500,20 @@ def move_files(from_dir, to_dir, file_date):
             sMMM = "DEC"
             break
         if case():
-            exit("Missing month!!!")
+            sys.exit("Missing month!!!")
 
-    dest_file = open(os.path.join(to_dir, 'AMENDS', sYY + sMMM + sDD), 'wb')
+    dest_file = open(os.path.join(to_dir, sYY + sMMM + sDD), 'wb')
     file_set = glob.glob(os.path.join(from_dir, sDD + sMM + 'R*.SGM'))
     if file_set:
         for filename in file_set:
             if os.path.isfile(filename):
-                if not os.path.exists(os.path.join(to_dir, 'AMENDS')):
-                    os.makedirs(os.path.join(to_dir, 'AMENDS'))
+                if not os.path.exists(to_dir):
+                    os.makedirs(to_dir)
                 shutil.copyfileobj(open(filename, 'rb'), dest_file)
             else:
-                exit("Input is not a file!!! -> " + filename)
+                sys.exit("Input is not a file!!! -> " + filename)
     else:
-        exit("No input files located for a specified date!!!")
+        sys.exit("No input files located for a specified date!!!")
     dest_file.close()
     return dest_file
 
@@ -623,7 +623,7 @@ def partext(temp_file, file_date):
 
 
 if __name__ == "__main__":
-    args = docopt(__doc__, version='CFR PULL 2.0')
+    args = docopt(__doc__, version='CFR PULL 2.0.2')
 
     if args['auto']:
         schema = Schema({
@@ -636,7 +636,7 @@ if __name__ == "__main__":
         try:
             args = schema.validate(args)
         except SchemaError as e:
-            exit(e)
+            sys.exit(e)
         temp_file = move_files(args['<from>'], args['<to>'], args['--date'])
         alpha(temp_file.name)
         final_file = partext(temp_file.name, args['--date'])
@@ -654,7 +654,7 @@ if __name__ == "__main__":
         try:
             args = schema.validate(args)
         except SchemaError as e:
-            exit(e)
+            sys.exit(e)
         temp_file = move_files(args['<from>'], args['<to>'], args['--date'])
         print("Files Moved & Combined! Destination file is located here: " + temp_file.name)
 
@@ -665,7 +665,7 @@ if __name__ == "__main__":
         try:
             args = schema.validate(args)
         except SchemaError as e:
-            exit(e)
+            sys.exit(e)
         alpha(args['<filename>'])
         print("Alpha Patterns Applied! File is located here: " + args['<filename>'])
 
@@ -678,7 +678,7 @@ if __name__ == "__main__":
         try:
             args = schema.validate(args)
         except SchemaError as e:
-            exit(e)
+            sys.exit(e)
         final_file = partext(args['<filename>'], args['--date'])
         print("Partext Script Applied! New file is located here: " + final_file)
 
@@ -689,6 +689,6 @@ if __name__ == "__main__":
         try:
             args = schema.validate(args)
         except SchemaError as e:
-            exit(e)
+            sys.exit(e)
         omega(args['<filename>'])
         print("Omega Patterns Applied! File is located here: " + args['<filename>'])
