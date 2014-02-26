@@ -1,4 +1,5 @@
 """Usage:
+  cfr_pull.py hardcoded
   cfr_pull.py auto <from> <to> [--date=<MMDDYY>]
   cfr_pull.py move <from> <to> [--date=<MMDDYY>]
   cfr_pull.py alpha <filename>
@@ -51,7 +52,7 @@ class switch(object):
         """Indicate whether or not to enter a case suite"""
         if self.fall or not args:
             return True
-        elif self.value in args: # changed for v1.5, see below
+        elif self.value in args:  # changed for v1.5, see below
             self.fall = True
             return True
         else:
@@ -307,9 +308,9 @@ def alpha_array():
         [re.compile(re.escape("r of the <E T='04'>Federal Register.</E>"), re.MULTILINE), "r of the Federal Register."],
         [re.compile(re.escape("r of the <E T='04'>Federal Register,</E>"), re.MULTILINE), "r of the Federal Register,"],
         [re.compile(re.escape("ce of the <E T='04'>Federal Register.</E>"), re.MULTILINE),
-        "ce of the Federal Register."],
+         "ce of the Federal Register."],
         [re.compile(re.escape("ce of the <E T='04'>Federal Register,</E>"), re.MULTILINE),
-        "ce of the Federal Register,"],
+         "ce of the Federal Register,"],
         [re.compile(re.escape("<FP1-2>"), re.MULTILINE), "<P-2>"],
         [re.compile(re.escape("<FP2-2>"), re.MULTILINE), "<FP2>"],
         [re.compile(re.escape("<CITA TYPE='N'>"), re.MULTILINE), "<CITA>"],
@@ -370,10 +371,15 @@ def omega_array():
         [re.compile(re.escape("</CFRDOC>"), re.DOTALL), "\n\n</CFRDOC>"],
         # [re.compile("(?<!\n{2,n})<SECTION>", re.DOTALL), "\n<SECTION>"],
         [re.compile("<PRTPAG.*?>\n?", re.MULTILINE), ""],
-        [re.compile("\n{0,2}^(<SUBPART>.*\n|<PART>.*\n|<HD1>.*\n)?(<SECTION>.*\n)?.*\n.*?<SUBJECT>\[?Removed.*\]?\.?", re.MULTILINE), ""],
-        [re.compile("\n{0,2}^(<SUBPART>.*\n|<PART>.*\n|<HD1>.*\n)?(<SECTION>.*\n)?.*\n.*?<SUBJECT>\[?Amended.*\]?\.?", re.MULTILINE), ""],
-        [re.compile("\n{0,2}^(<SUBPART>.*\n|<PART>.*\n|<HD1>.*\n)?(<SECTION>.*\n)?.*\n.*?<SUBJECT>\[?Corrected.*\]?\.?", re.MULTILINE), ""],
-        [re.compile("\n{0,2}^(<SUBPART>.*\n|<PART>.*\n|<HD1>.*\n)?(<SECTION>.*\n)?.*\n.*?<SUBJECT>\[?Redesignated.*\]?\.?", re.MULTILINE), ""],
+        [re.compile("\n{0,2}^(<SUBPART>.*\n|<PART>.*\n|<HD1>.*\n)?(<SECTION>.*\n)?.*\n.*?<SUBJECT>\[?Removed.*\]?\.?",
+                    re.MULTILINE), ""],
+        [re.compile("\n{0,2}^(<SUBPART>.*\n|<PART>.*\n|<HD1>.*\n)?(<SECTION>.*\n)?.*\n.*?<SUBJECT>\[?Amended.*\]?\.?",
+                    re.MULTILINE), ""],
+        [re.compile("\n{0,2}^(<SUBPART>.*\n|<PART>.*\n|<HD1>.*\n)?(<SECTION>.*\n)?.*\n.*?<SUBJECT>\[?Corrected.*\]?\.?",
+                    re.MULTILINE), ""],
+        [re.compile(
+            "\n{0,2}^(<SUBPART>.*\n|<PART>.*\n|<HD1>.*\n)?(<SECTION>.*\n)?.*\n.*?<SUBJECT>\[?Redesignated.*\]?\.?",
+            re.MULTILINE), ""],
         [re.compile("<HD1>.*?\[Removed.*\]\n|<HD1>.*?\[?Amended.*\]?\n|<HD1>.*?\[?Corrected.*\]?\n", re.MULTILINE), ""],
         [re.compile("<(GPH.*?)>\s*?(<GID>.*?</GPH>)\s*?<!--(GPH.*?)-->", re.MULTILINE), "<\g<3>>\n\g<2>\n"],
         [re.compile("<(MATH.*?)>\s*?(<MID>.*?</MATH>)\s*?<!--(MATH.*?)-->", re.MULTILINE), "<\g<3>>\n\g<2>\n"],
@@ -623,9 +629,25 @@ def partext(temp_file, file_date):
 
 
 if __name__ == "__main__":
-    args = docopt(__doc__, version='CFR PULL 2.0.2')
+    args = docopt(__doc__, version='CFR PULL 2.1.0')
 
-    if args['auto']:
+    if args['hardcoded']:
+        from_dir = 'M:\Toofr'
+        to_dir = 'L:\Regtext'
+        if os.path.exists(from_dir) and os.path.exists(to_dir):
+            temp_file = move_files(from_dir, to_dir, None)
+            alpha(temp_file.name)
+            final_file = partext(temp_file.name, None)
+            omega(final_file)
+            print("*** Auto Processing Completed! File is located here: " + final_file + " ***")
+        else:
+            print(
+                "\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n"
+                "!!! Either <from> or <to> or both directories are invalid !!!\n"
+                "!!! Make sure 'M:\Toofr' and 'L:\Regtext' are present     !!!\n"
+                "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+
+    elif args['auto']:
         schema = Schema({
             '<from>': And(os.path.exists, error='<from> directory should exist'),
             '<to>': And(os.path.exists, error='<to> directory should exist'),
@@ -641,7 +663,7 @@ if __name__ == "__main__":
         alpha(temp_file.name)
         final_file = partext(temp_file.name, args['--date'])
         omega(final_file)
-        print("Auto Processing Completed! File is located here: " + final_file)
+        print("*** Auto Processing Completed! File is located here: " + final_file + " ***")
 
     elif args['move']:
         schema = Schema({
@@ -656,7 +678,7 @@ if __name__ == "__main__":
         except SchemaError as e:
             sys.exit(e)
         temp_file = move_files(args['<from>'], args['<to>'], args['--date'])
-        print("Files Moved & Combined! Destination file is located here: " + temp_file.name)
+        print("*** Files Moved & Combined! Destination file is located here: " + temp_file.name + " ***")
 
     elif args['alpha']:
         schema = Schema({
@@ -667,7 +689,7 @@ if __name__ == "__main__":
         except SchemaError as e:
             sys.exit(e)
         alpha(args['<filename>'])
-        print("Alpha Patterns Applied! File is located here: " + args['<filename>'])
+        print("*** Alpha Patterns Applied! File is located here: " + args['<filename>'] + " ***")
 
     elif args['partext']:
         schema = Schema({
@@ -680,7 +702,7 @@ if __name__ == "__main__":
         except SchemaError as e:
             sys.exit(e)
         final_file = partext(args['<filename>'], args['--date'])
-        print("Partext Script Applied! New file is located here: " + final_file)
+        print("*** Partext Script Applied! New file is located here: " + final_file + " ***")
 
     elif args['omega']:
         schema = Schema({
@@ -691,4 +713,4 @@ if __name__ == "__main__":
         except SchemaError as e:
             sys.exit(e)
         omega(args['<filename>'])
-        print("Omega Patterns Applied! File is located here: " + args['<filename>'])
+        print("*** Omega Patterns Applied! File is located here: " + args['<filename>'] + " ***")
