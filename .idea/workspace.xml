@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="efbdb2b9-0f28-4040-aba6-4a7be1dc9dda" name="Default" comment="Removed extraneous files">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/_hashlib.pyd" afterPath="$PROJECT_DIR$/dist/_hashlib.pyd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/bz2.pyd" afterPath="$PROJECT_DIR$/dist/bz2.pyd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/cfr_pull.exe" afterPath="$PROJECT_DIR$/dist/cfr_pull.exe" />
+    <list default="true" id="efbdb2b9-0f28-4040-aba6-4a7be1dc9dda" name="Default" comment="Renamed">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/pull.exe" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/w9xpopen.exe" />
+      <change type="DELETED" beforePath="E:\Users\sjohnson\PycharmProjects\CFR_PULL\dist\cfr_pull.exe" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/library.zip" afterPath="$PROJECT_DIR$/dist/library.zip" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/python27.dll" afterPath="$PROJECT_DIR$/dist/python27.dll" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/select.pyd" afterPath="$PROJECT_DIR$/dist/select.pyd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/unicodedata.pyd" afterPath="$PROJECT_DIR$/dist/unicodedata.pyd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/CFR_PULL.iml" afterPath="$PROJECT_DIR$/.idea/CFR_PULL.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cfr_pull.py" afterPath="$PROJECT_DIR$/cfr_pull.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup.py" afterPath="$PROJECT_DIR$/setup.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="E:\Users\sjohnson\PycharmProjects\CFR_PULL\cfr_pull.py" afterPath="$PROJECT_DIR$/pull.py" />
     </list>
     <ignored path="CFR_PULL.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,20 +31,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="cfr_pull.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/cfr_pull.py">
+      <file leaf-file-name="pull.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pull.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="424" column="0" selection-start="24134" selection-end="24134" vertical-scroll-proportion="0.44012442" vertical-offset="6806" max-vertical-offset="11764">
+            <state line="631" column="44" selection-start="31178" selection-end="31178" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="12121">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="setup.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="setup.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="0" selection-start="47" selection-end="47" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="153">
-              <folding />
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="642">
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -81,6 +79,7 @@
         <option value="$PROJECT_DIR$/schem_docopt.py" />
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/cfr_pull.py" />
+        <option value="$PROJECT_DIR$/pull.py" />
       </list>
     </option>
   </component>
@@ -123,7 +122,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+    <navigator currentView="Scope" currentSubView="Project Files" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -135,12 +134,42 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Default">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="CFR_PULL">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="CFR_PULL" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; Python 3.3.4 virtualenv at C:\Users\Administrator\Win32_env &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -155,19 +184,18 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
     <property name="recentsLimit" value="5" />
-    <property name="restartRequiresConfirmation" value="true" />
+    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
     <property name="last_opened_file_path" value="C:/Python27_32bit/python.exe" />
+    <property name="restartRequiresConfirmation" value="true" />
     <property name="FullScreen" value="false" />
     <property name="last.edited.regexp" value="&lt;REGTEXT TITLE=' 26 ' PART=' 1 '&gt;&#10;&lt;PART&gt;&lt;HED&gt;PART 1&amp;mdash;INCOME TAXES&#10;&lt;AMDPAR&gt;&lt;E T='04'&gt;Paragraph 1.&lt;/E&gt; The authority citation for part 1 is amended by revising the entry for &amp;sect;&amp;thnsp;1.863&amp;ndash;7 and adding an entry for &amp;sect;&amp;thnsp;1.871&amp;ndash;15 to read in part as follows:&#10;&lt;AUTH&gt;&lt;HED&gt;Authority:&lt;P&gt;26 U.S.C. 7805 *&amp;ensp;*&amp;ensp;*&#10;&#10;&lt;?USGPO Galley Info Start:{movepis}&#10;! RULES R33 PC\J\232001-A05DE0-068-*****-*****-&#10; -Name: Joe Butrim&#10; -Payroll No: 08947&#10; -Folios: E734-737&#10; -Date: 12/03/2013&#10;[FEDREG][VOL]*[/VOL][NO]*[/NO][DATE]*[/DATE][RULES]&#10;[RULE][PREAMB][AGENCY]*[/AGENCY][SUBJECT]*[/SUBJECT][/PREAMB]&#10;[SUPLINF][HED]*[/HED][REGTEXT][P]*[/P]?&gt;&lt;?USGPO Galley Info End?&gt;&#10;&#10;&lt;EXTRACT&gt;&lt;P&gt;&amp;sect;&amp;thnsp;1.863&amp;ndash;7 also issued under 26 U.S.C. 863(a) and 871(m). *&amp;ensp;*&amp;ensp;* &amp;sect;&amp;thnsp;1.871&amp;ndash;15 also issued under 26 U.S.C. 871(m). *&amp;ensp;*&amp;ensp;*&lt;/EXTRACT&gt;&lt;/REGTEXT&gt;&#10;&lt;Q P='02'&gt;" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -177,7 +205,7 @@
       </console-settings>
     </option>
   </component>
-  <component name="RunManager" selected="Python.cfr_pull">
+  <component name="RunManager" selected="Python.setup">
     <configuration default="false" name="cfr_pull" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -190,8 +218,8 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="CFR_PULL" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cfr_pull.py" />
-      <option name="PARAMETERS" value="auto E:\Download E:\PDF --date=110113" />
+      <option name="SCRIPT_NAME" value="E:\Users\sjohnson\PycharmProjects\CFR_PULL\pull.py" />
+      <option name="PARAMETERS" value="auto Z:\UFR J:\Opapa" />
       <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
@@ -204,7 +232,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="$USER_HOME$/Python27_32env/Scripts/python.exe" />
+      <option name="SDK_HOME" value="C:/Python27_32bit/python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -379,8 +407,8 @@
     </list>
     <recent_temporary>
       <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.cfr_pull" />
-        <item index="1" class="java.lang.String" itemvalue="Python.setup" />
+        <item index="0" class="java.lang.String" itemvalue="Python.setup" />
+        <item index="1" class="java.lang.String" itemvalue="Python.cfr_pull" />
       </list>
     </recent_temporary>
   </component>
@@ -444,28 +472,44 @@
       <created>1392828643641</created>
       <updated>1392828643641</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Script is now Python 3.3+ compatible">
+      <created>1393017753965</created>
+      <updated>1393017753965</updated>
+    </task>
+    <task id="LOCAL-00011" summary="1. Fixed &quot;exit&quot; problem&#10;2. Corrected some of the regexes">
+      <created>1393431405165</created>
+      <updated>1393431405165</updated>
+    </task>
+    <task id="LOCAL-00012" summary="New &quot;dist&quot; package">
+      <created>1393431555634</created>
+      <updated>1393431555634</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Added &quot;hardcoded&quot; option with hardcoded directories for fast execution.">
+      <created>1393452479133</created>
+      <updated>1393452479133</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32950193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919955" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32897195" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18020834" sideWeight="0.6503831" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.134375" sideWeight="0.54587686" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34953272" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37547892" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37476635" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37570092" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329849" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32950193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -489,20 +533,31 @@
     <MESSAGE value="1.  Added regex to handle &lt;MATH&gt; tag edits&#10;2. Fixed &lt;CR&gt;&lt;LF&gt;&#10;3. Fixe regex for [removed]/[amended] sections" />
     <MESSAGE value="Many fixes for regex:&#10;1. SUBPART&#10;2. GPH&#10;3. MATH&#10;4. BILCOD&#10;5. PART&#10;6. Date identification" />
     <MESSAGE value="Removed extraneous files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed extraneous files" />
+    <MESSAGE value="Script is now Python 3.3+ compatible" />
+    <MESSAGE value="1. Fixed &quot;exit&quot; problem&#10;2. Corrected some of the regexes" />
+    <MESSAGE value="New &quot;dist&quot; package" />
+    <MESSAGE value="Added &quot;hardcoded&quot; option with hardcoded directories for fast execution." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added &quot;hardcoded&quot; option with hardcoded directories for fast execution." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://C:/Python27/Lib/site-packages/schema.py</url>
+          <line>143</line>
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="67" />
+      <option name="time" value="70" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/cfr_pull.py">
+    <entry file="file://$PROJECT_DIR$/pull.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="616" column="0" selection-start="30886" selection-end="30886" vertical-scroll-proportion="0.0" vertical-offset="10472" max-vertical-offset="11764">
+        <state line="624" column="26" selection-start="31059" selection-end="31059" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="11883">
           <folding />
         </state>
       </provider>
@@ -510,46 +565,105 @@
     <entry file="file://$PROJECT_DIR$/setup.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="0" selection-start="47" selection-end="47" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="153">
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pull.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="624" column="26" selection-start="31059" selection-end="31059" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="11883">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="84" selection-start="236" selection-end="236" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="204">
+        <state line="2" column="0" selection-start="47" selection-end="47" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="153">
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pull.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="624" column="26" selection-start="31059" selection-end="31059" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="11883">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cfr_pull.py">
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="47" selection-end="47" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="153">
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pull.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="624" column="26" selection-start="31059" selection-end="31059" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="11883">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="47" selection-end="47" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="153">
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pull.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="624" column="26" selection-start="31059" selection-end="31059" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="11883">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="47" selection-end="47" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="153">
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pull.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="160" column="53" selection-start="7945" selection-end="7945" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="11475">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cfr_pull.py">
+    <entry file="file://$PROJECT_DIR$/pull.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="160" column="53" selection-start="7945" selection-end="7945" vertical-scroll-proportion="0.0" vertical-offset="2537" max-vertical-offset="11475">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cfr_pull.py">
+    <entry file="file://$PROJECT_DIR$/pull.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="597" column="25" selection-start="28683" selection-end="28683" vertical-scroll-proportion="0.0" vertical-offset="5722" max-vertical-offset="11356">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cfr_pull.py">
+    <entry file="file://$PROJECT_DIR$/pull.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="215" column="56" selection-start="11689" selection-end="11689" vertical-scroll-proportion="0.0" vertical-offset="5196" max-vertical-offset="9486">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cfr_pull.py">
+    <entry file="file://$PROJECT_DIR$/pull.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="5" selection-start="48" selection-end="48" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="527">
           <folding />
@@ -591,34 +705,61 @@
         <state line="1142" column="0" selection-start="47510" selection-end="47510" vertical-scroll-proportion="0.3323124" vertical-offset="18075" max-vertical-offset="25024" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="47" selection-end="47" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Python33/Lib/re.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="169" column="0" selection-start="8419" selection-end="8419" vertical-scroll-proportion="0.0" vertical-offset="2605" max-vertical-offset="6171">
-          <folding />
-        </state>
+        <state line="169" column="0" selection-start="8419" selection-end="8419" vertical-scroll-proportion="0.0" vertical-offset="2605" max-vertical-offset="6171" />
       </provider>
     </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_execfile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="1164" selection-end="1164" vertical-scroll-proportion="0.8477612" vertical-offset="44" max-vertical-offset="714">
-          <folding />
-        </state>
+        <state line="36" column="0" selection-start="1164" selection-end="1164" vertical-scroll-proportion="0.8477612" vertical-offset="44" max-vertical-offset="714" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cfr_pull.py">
+    <entry file="file://C:/Python33/Lib/os.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="424" column="0" selection-start="24134" selection-end="24134" vertical-scroll-proportion="0.44012442" vertical-offset="6806" max-vertical-offset="11764">
+        <state line="0" column="0" selection-start="0" selection-end="73" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="17816">
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/schema.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="328" selection-end="328" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3145">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pull.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="631" column="44" selection-start="31178" selection-end="31178" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="12121">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1044">
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
 
