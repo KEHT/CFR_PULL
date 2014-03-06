@@ -2,16 +2,16 @@
   pull.py set
   pull.py auto <from> <to> [--date=<MMDDYY>]
   pull.py move <from> <to> [--date=<MMDDYY>]
-  pull.py alpha <filename>
-  pull.py partext <filename> [--date=<MMDDYY>]
-  pull.py omega <filename>
   pull.py (-h | --help)
   pull.py (-v | --version)
 
 Options:
+  set                   Executes routine with set directories and today's date
+  auto                  Executes routine with specified directories and date
+  move                  Copies and combines SGM files from source to dest.
+  --date=<MMDDYY>       Optional date of the files to pull
   -h --help             Show this screen.
   -v --version          Show version.
-  --date=<MMDDYY>       Optional date of the files to pull
 
 """
 
@@ -59,9 +59,8 @@ class switch(object):
             return False
 
 
-# Array of compiled replacement patterns for use with "alpha" function
 def alpha_array():
-    """
+    """Array of compiled replacement patterns for use with "alpha" function
 
     @rtype : list
     """
@@ -332,10 +331,9 @@ def alpha_array():
     return list_regex
 
 
-# Array of compiled replacement patterns for use with "omega" function
 def omega_array():
     """
-
+    Array of compiled replacement patterns for use with "omega" function
 
     @return: list of compiled substitution regular expressions
     """
@@ -536,8 +534,7 @@ def alpha(tmp_file):
 
 
 def omega(tmp_file):
-    """
-    Applied final replacement patterns to data file
+    """Applied final replacement patterns to data file
 
     @rtype : object
     @param tmp_file: str
@@ -550,7 +547,7 @@ def omega(tmp_file):
 
 def partext(temp_file, file_date):
     """
-
+    Extract REGTEXT blocks and expend their date, etc. properties
 
     @rtype : str
     @param temp_file: Input file to process
@@ -629,7 +626,7 @@ def partext(temp_file, file_date):
 
 
 if __name__ == "__main__":
-    args = docopt(__doc__, version='PULL 2.2.0')
+    args = docopt(__doc__, version='\nPULL 2.3.5')
 
     if args['set']:
         from_dir = 'M:\Toofr'
@@ -639,7 +636,7 @@ if __name__ == "__main__":
             alpha(temp_file.name)
             final_file = partext(temp_file.name, None)
             omega(final_file)
-            print("*** Auto Processing Completed! File is located here: " + final_file + " ***")
+            print("\n*** Auto Processing Completed! File is located here: " + final_file + " ***")
         else:
             print(
                 "\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n"
@@ -649,11 +646,11 @@ if __name__ == "__main__":
 
     elif args['auto']:
         schema = Schema({
-            '<from>': And(os.path.exists, error='<from> directory should exist'),
-            '<to>': And(os.path.exists, error='<to> directory should exist'),
-            '--date': Or(None, lambda n: datetime.strptime(n, "%m%d%y"),
-                         error='--date should be in a MMDDYY format'),
-            object: object
+            '<from>': And(os.path.exists, error='\n<from> directory must exist!!!'),
+            '<to>': And(os.path.exists, error='\n<to> directory must exist!!!'),
+            '--date': Or(None, And(lambda n: datetime.strptime(n, "%m%d%y")),
+                         error='\n--date= must be in a <MMDDYY> format!!!'),
+            str: object
         })
         try:
             args = schema.validate(args)
@@ -663,54 +660,19 @@ if __name__ == "__main__":
         alpha(temp_file.name)
         final_file = partext(temp_file.name, args['--date'])
         omega(final_file)
-        print("*** Auto Processing Completed! File is located here: " + final_file + " ***")
+        print("\n*** Auto Processing Completed! File is located here: " + final_file + " ***")
 
     elif args['move']:
         schema = Schema({
-            '<from>': And(os.path.exists, error='<from> directory should exist'),
-            '<to>': And(os.path.exists, error='<to> directory should exist'),
-            '--date': Or(None, lambda n: datetime.strptime(n, "%m%d%y"),
-                         error='--date should be in a MMDDYY format'),
-            object: object
+            '<from>': And(os.path.exists, error='\n<from> directory must exist!!!'),
+            '<to>': And(os.path.exists, error='\n<to> directory must exist!!!'),
+            '--date': Or(None, And(lambda n: datetime.strptime(n, "%m%d%y")),
+                         error='\n--date= must be in a <MMDDYY> format!!!'),
+            str: object
         })
         try:
             args = schema.validate(args)
         except SchemaError as e:
             sys.exit(e)
         temp_file = move_files(args['<from>'], args['<to>'], args['--date'])
-        print("*** Files Moved & Combined! Destination file is located here: " + temp_file.name + " ***")
-
-    elif args['alpha']:
-        schema = Schema({
-            '<filename>': [Use(open)]
-        })
-        try:
-            args = schema.validate(args)
-        except SchemaError as e:
-            sys.exit(e)
-        alpha(args['<filename>'])
-        print("*** Alpha Patterns Applied! File is located here: " + args['<filename>'] + " ***")
-
-    elif args['partext']:
-        schema = Schema({
-            '<filename>': [Use(open)],
-            '--date': Or(None, lambda n: datetime.strptime(n, "%m%d%y"),
-                         error='--date should be in a MMDDYY format'),
-        })
-        try:
-            args = schema.validate(args)
-        except SchemaError as e:
-            sys.exit(e)
-        final_file = partext(args['<filename>'], args['--date'])
-        print("*** Partext Script Applied! New file is located here: " + final_file + " ***")
-
-    elif args['omega']:
-        schema = Schema({
-            '<filename>': [Use(open)]
-        })
-        try:
-            args = schema.validate(args)
-        except SchemaError as e:
-            sys.exit(e)
-        omega(args['<filename>'])
-        print("*** Omega Patterns Applied! File is located here: " + args['<filename>'] + " ***")
+        print("\n*** Files Moved & Combined! Destination file is located here: " + temp_file.name + " ***")
