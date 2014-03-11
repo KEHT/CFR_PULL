@@ -2,13 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="efbdb2b9-0f28-4040-aba6-4a7be1dc9dda" name="Default" comment="Renamed">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/pull.exe" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/w9xpopen.exe" />
+      <change type="DELETED" beforePath="E:\Users\sjohnson\PycharmProjects\CFR_PULL\build\bdist.win-amd64\winexe\temp\_hashlib.py" afterPath="" />
+      <change type="DELETED" beforePath="E:\Users\sjohnson\PycharmProjects\CFR_PULL\build\bdist.win-amd64\winexe\temp\bz2.py" afterPath="" />
+      <change type="DELETED" beforePath="E:\Users\sjohnson\PycharmProjects\CFR_PULL\build\bdist.win-amd64\winexe\temp\select.py" afterPath="" />
+      <change type="DELETED" beforePath="E:\Users\sjohnson\PycharmProjects\CFR_PULL\build\bdist.win-amd64\winexe\temp\unicodedata.py" afterPath="" />
       <change type="DELETED" beforePath="E:\Users\sjohnson\PycharmProjects\CFR_PULL\dist\cfr_pull.exe" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/library.zip" afterPath="$PROJECT_DIR$/dist/library.zip" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup.py" afterPath="$PROJECT_DIR$/setup.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/pull.exe" afterPath="$PROJECT_DIR$/dist/pull.exe" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pull.py" afterPath="$PROJECT_DIR$/pull.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="E:\Users\sjohnson\PycharmProjects\CFR_PULL\cfr_pull.py" afterPath="$PROJECT_DIR$/pull.py" />
     </list>
     <ignored path="CFR_PULL.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,19 +33,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="pull.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="pull.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pull.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="631" column="44" selection-start="31178" selection-end="31178" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="12121">
-              <folding />
+            <state line="677" column="107" selection-start="33712" selection-end="33712" vertical-scroll-proportion="0.8442748" vertical-offset="10956" max-vertical-offset="11611">
+              <folding>
+                <element signature="e#576#586#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="setup.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="setup.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="642">
+            <state line="3" column="57" selection-start="105" selection-end="105" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153">
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -66,6 +70,11 @@
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="GitLogSettings">
     <option name="myDateState">
@@ -77,17 +86,15 @@
       <list>
         <option value="$PROJECT_DIR$/naval_fate.py" />
         <option value="$PROJECT_DIR$/schem_docopt.py" />
-        <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/cfr_pull.py" />
+        <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/pull.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1176" />
+    <option name="width" value="1920" />
+    <option name="height" value="1160" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -134,28 +141,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Default">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="CFR_PULL">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -184,6 +169,28 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope">
+        <subPane subId="Default">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="CFR_PULL">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -196,6 +203,22 @@
     <property name="last.edited.regexp" value="&lt;REGTEXT TITLE=' 26 ' PART=' 1 '&gt;&#10;&lt;PART&gt;&lt;HED&gt;PART 1&amp;mdash;INCOME TAXES&#10;&lt;AMDPAR&gt;&lt;E T='04'&gt;Paragraph 1.&lt;/E&gt; The authority citation for part 1 is amended by revising the entry for &amp;sect;&amp;thnsp;1.863&amp;ndash;7 and adding an entry for &amp;sect;&amp;thnsp;1.871&amp;ndash;15 to read in part as follows:&#10;&lt;AUTH&gt;&lt;HED&gt;Authority:&lt;P&gt;26 U.S.C. 7805 *&amp;ensp;*&amp;ensp;*&#10;&#10;&lt;?USGPO Galley Info Start:{movepis}&#10;! RULES R33 PC\J\232001-A05DE0-068-*****-*****-&#10; -Name: Joe Butrim&#10; -Payroll No: 08947&#10; -Folios: E734-737&#10; -Date: 12/03/2013&#10;[FEDREG][VOL]*[/VOL][NO]*[/NO][DATE]*[/DATE][RULES]&#10;[RULE][PREAMB][AGENCY]*[/AGENCY][SUBJECT]*[/SUBJECT][/PREAMB]&#10;[SUPLINF][HED]*[/HED][REGTEXT][P]*[/P]?&gt;&lt;?USGPO Galley Info End?&gt;&#10;&#10;&lt;EXTRACT&gt;&lt;P&gt;&amp;sect;&amp;thnsp;1.863&amp;ndash;7 also issued under 26 U.S.C. 863(a) and 871(m). *&amp;ensp;*&amp;ensp;* &amp;sect;&amp;thnsp;1.871&amp;ndash;15 also issued under 26 U.S.C. 871(m). *&amp;ensp;*&amp;ensp;*&lt;/EXTRACT&gt;&lt;/REGTEXT&gt;&#10;&lt;Q P='02'&gt;" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="282" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="300" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="306" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="986" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="304" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="293" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="299" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="978" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -205,21 +228,21 @@
       </console-settings>
     </option>
   </component>
-  <component name="RunManager" selected="Python.setup">
+  <component name="RunManager" selected="Python.cfr_pull">
     <configuration default="false" name="cfr_pull" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:/Python27/python.exe" />
+      <option name="SDK_HOME" value="C:/Python27_32bit/python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="CFR_PULL" />
-      <option name="SCRIPT_NAME" value="E:\Users\sjohnson\PycharmProjects\CFR_PULL\pull.py" />
-      <option name="PARAMETERS" value="auto Z:\UFR J:\Opapa" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pull.py" />
+      <option name="PARAMETERS" value="set" />
       <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
@@ -412,7 +435,12 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="ShelveChangesManager" show_recycled="false">
+    <changelist date="1394145170845">
+      <option name="PATH" value="C:\Users\Administrator\.PyCharm30\config\shelf\Renamed.patch" />
+      <option name="DESCRIPTION" value="Renamed" />
+    </changelist>
+  </component>
   <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
     <option name="USER" value="" />
     <option name="PASSWORD" value="" />
@@ -488,27 +516,43 @@
       <created>1393452479133</created>
       <updated>1393452479133</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Renamed to just &quot;pull&quot; and rename &quot;hardcoded&quot; option to &quot;set&quot;">
+      <created>1393969178453</created>
+      <updated>1393969178453</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Removed some of the options.&#10;Cleaned up error messages.&#10;">
+      <created>1394072201230</created>
+      <updated>1394072201230</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Renamed">
+      <created>1394145171108</created>
+      <updated>1394145171108</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Substituted server address for drive letters">
+      <created>1394553944763</created>
+      <updated>1394553944763</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
-    <editor active="false" />
+    <frame x="0" y="0" width="1920" height="1160" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32950193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33491462" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919955" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32897195" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.134375" sideWeight="0.54587686" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34953272" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1355042" sideWeight="0.54587686" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3491461" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37547892" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37570092" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3747628" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32922202" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32897195" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -524,9 +568,11 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <option name="SHOW_FILE_HISTORY_DETAILS" value="false" />
     <MESSAGE value="Changed so that &lt;EFFDATES&gt; tag now contains the entire source line and EFFDATE= attribute either the first date or 'YYYY0000' entry" />
     <MESSAGE value="1. Corrected an error reading &amp; writing files when not everything was read (using binary now)&#10;2. Corrected date time in attribute and EFFDATE" />
     <MESSAGE value="1.  Added regex to handle &lt;GPH&gt; tag edits&#10;2. Fixed removal of &lt;PRTPAGE ..&gt; tag" />
@@ -537,28 +583,63 @@
     <MESSAGE value="1. Fixed &quot;exit&quot; problem&#10;2. Corrected some of the regexes" />
     <MESSAGE value="New &quot;dist&quot; package" />
     <MESSAGE value="Added &quot;hardcoded&quot; option with hardcoded directories for fast execution." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added &quot;hardcoded&quot; option with hardcoded directories for fast execution." />
+    <MESSAGE value="Renamed to just &quot;pull&quot; and rename &quot;hardcoded&quot; option to &quot;set&quot;" />
+    <MESSAGE value="Removed some of the options.&#10;Cleaned up error messages.&#10;" />
+    <MESSAGE value="Renamed" />
+    <MESSAGE value="Substituted server address for drive letters" />
+    <option name="LAST_COMMIT_MESSAGE" value="Substituted server address for drive letters" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://C:/Python27/Lib/site-packages/schema.py</url>
-          <line>143</line>
-          <option name="timeStamp" value="69" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="70" />
+      <option name="time" value="73" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pull.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state line="685" column="10" selection-start="33539" selection-end="33539" vertical-scroll-proportion="0.0" vertical-offset="11645" max-vertical-offset="12121">
+          <folding>
+            <element signature="e#576#586#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153">
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pull.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="664" column="25" selection-start="32663" selection-end="32663" vertical-scroll-proportion="0.0" vertical-offset="11288" max-vertical-offset="12121">
+          <folding>
+            <element signature="e#576#586#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153">
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pull.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state line="624" column="26" selection-start="31059" selection-end="31059" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="11883">
-          <folding />
+          <folding>
+            <element signature="e#576#586#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -574,7 +655,9 @@
     <entry file="file://$PROJECT_DIR$/pull.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="624" column="26" selection-start="31059" selection-end="31059" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="11883">
-          <folding />
+          <folding>
+            <element signature="e#576#586#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -590,7 +673,9 @@
     <entry file="file://$PROJECT_DIR$/pull.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="624" column="26" selection-start="31059" selection-end="31059" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="11883">
-          <folding />
+          <folding>
+            <element signature="e#576#586#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -606,7 +691,9 @@
     <entry file="file://$PROJECT_DIR$/pull.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="624" column="26" selection-start="31059" selection-end="31059" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="11883">
-          <folding />
+          <folding>
+            <element signature="e#576#586#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -622,7 +709,9 @@
     <entry file="file://$PROJECT_DIR$/pull.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="624" column="26" selection-start="31059" selection-end="31059" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="11883">
-          <folding />
+          <folding>
+            <element signature="e#576#586#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -638,35 +727,45 @@
     <entry file="file://$PROJECT_DIR$/pull.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="160" column="53" selection-start="7945" selection-end="7945" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="11475">
-          <folding />
+          <folding>
+            <element signature="e#576#586#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pull.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="160" column="53" selection-start="7945" selection-end="7945" vertical-scroll-proportion="0.0" vertical-offset="2537" max-vertical-offset="11475">
-          <folding />
+          <folding>
+            <element signature="e#576#586#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pull.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="597" column="25" selection-start="28683" selection-end="28683" vertical-scroll-proportion="0.0" vertical-offset="5722" max-vertical-offset="11356">
-          <folding />
+          <folding>
+            <element signature="e#576#586#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pull.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="215" column="56" selection-start="11689" selection-end="11689" vertical-scroll-proportion="0.0" vertical-offset="5196" max-vertical-offset="9486">
-          <folding />
+          <folding>
+            <element signature="e#576#586#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pull.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="5" selection-start="48" selection-end="48" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="527">
-          <folding />
+          <folding>
+            <element signature="e#576#586#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -717,30 +816,30 @@
     </entry>
     <entry file="file://C:/Python33/Lib/os.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="73" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="17816">
-          <folding />
+        <state line="0" column="0" selection-start="0" selection-end="73" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="17816" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="57" selection-start="105" selection-end="105" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153">
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/schema.py">
+    <entry file="file://C:/Python27_32bit/Lib/site-packages/schema.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="328" selection-end="328" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3145">
+        <state line="60" column="0" selection-start="1691" selection-end="1691" vertical-scroll-proportion="0.3274596" vertical-offset="797" max-vertical-offset="3179">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pull.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="631" column="44" selection-start="31178" selection-end="31178" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="12121">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1044">
+        <state line="677" column="107" selection-start="33712" selection-end="33712" vertical-scroll-proportion="0.8442748" vertical-offset="10956" max-vertical-offset="11611">
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#576#586#0" expanded="true" />
           </folding>
         </state>
       </provider>
