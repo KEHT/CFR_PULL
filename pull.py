@@ -626,11 +626,11 @@ def partext(temp_file, file_date):
 
 
 if __name__ == "__main__":
-    args = docopt(__doc__, version='\nPULL 2.3.5')
+    args = docopt(__doc__, version='\nPULL 2.3.6')
 
     if args['set']:
-        from_dir = 'M:\Toofr'
-        to_dir = 'L:\Regtext'
+        from_dir = r'\\hqnapdcm0734\ofr\ofr_gpo\TOOFR'
+        to_dir = r'\\hqnapdcm0734\ofr\e_cfr\Regtext'
         if os.path.exists(from_dir) and os.path.exists(to_dir):
             temp_file = move_files(from_dir, to_dir, None)
             alpha(temp_file.name)
