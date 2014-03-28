@@ -604,6 +604,9 @@ def partext(temp_file, file_date):
     # Retrieve REGTEXT clauses and attach dates and page number tags and attributes to them
     id_seq = 0
     for reg in re.finditer('(<REGTEXT TITLE.*?</REGTEXT>)', file_string, re.S):
+        # Eliminate certain specific REGTEXT buckets
+        if re.search("continues to read", reg.group(0)) and not re.search("revised|revising|amend|remove|add", reg.group(0)):
+            continue
         id_seq += 1
         reg_eff_date = get_from_dict(reg.start(), effdates_info)
         if reg_eff_date[0]:
@@ -616,7 +619,7 @@ def partext(temp_file, file_date):
         regtxt_attrb = ' EFFDATE=\'' + effdate_attrib + '\' ID=\'' + eff_date + '-' + str(id_seq) + \
                        '\' FRPAGE=\'' + vol_num + 'FR' + reg_prt_num[
                            0] + '\'><EFFDATES>' + effdate_element
-        reg_txt = re.sub(">", regtxt_attrb, reg.group(0), 1)
+        reg_txt = re.sub(">", regtxt_attrb, reg.group(0), count=1)
         new_file_string += reg_txt
     new_file_string = "<CFRDOC ED='XX' REV='XX'>\n\n" + new_file_string + "\n</CFRDOC>"
     new_file_name = os.path.join(os.path.dirname(temp_file), eff_date + ".AMD")
@@ -626,7 +629,7 @@ def partext(temp_file, file_date):
 
 
 if __name__ == "__main__":
-    args = docopt(__doc__, version='\nPULL 2.3.6')
+    args = docopt(__doc__, version='\nPULL 2.3.7')
 
     if args['set']:
         from_dir = r'\\hqnapdcm0734\ofr\ofr_gpo\TOOFR'
