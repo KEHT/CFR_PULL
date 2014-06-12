@@ -511,9 +511,9 @@ def move_files(from_dir, to_dir, file_date):
         if case():
             sys.exit("Missing month!!!")
 
-    dest_file = open(os.path.join(to_dir, sYY + sMMM + sDD), 'wb')
     file_set = glob.glob(os.path.join(from_dir, sDD + sMM + 'R*.SGM'))
     if file_set:
+        dest_file = open(os.path.join(to_dir, sYY + sMMM + sDD), 'wb')
         for filename in file_set:
             if os.path.isfile(filename):
                 if not os.path.exists(to_dir):
@@ -521,9 +521,9 @@ def move_files(from_dir, to_dir, file_date):
                 shutil.copyfileobj(open(filename, 'rb'), dest_file)
             else:
                 sys.exit("Input is not a file!!! -> " + filename)
+        dest_file.close()
     else:
         sys.exit("No input files located for a specified date!!!")
-    dest_file.close()
     return dest_file
 
 
@@ -588,7 +588,7 @@ def partext(temp_file, file_date):
                         datetime.strptime(" ".join(str(i) for i in eff_date_str[0]), "%B %d %Y")))
                 except ValueError as err:
                     print(err)
-                    print("Please correct Effective Dates in a final file where December 31, 1969 appears!!!")
+                    print("Please correct Effective Dates in a final file if/where December 31, 1969 appears!!!")
                     effdates_info[eff_date_itr.start()].append(datetime.fromtimestamp(0))
                     effdates_info[eff_date_itr.start()].append(
                         "{0:%B} {0.day}, {0:%Y}".format(datetime.fromtimestamp(0)))
@@ -647,7 +647,7 @@ def partext(temp_file, file_date):
 
 
 if __name__ == "__main__":
-    args = docopt(__doc__, version='\nPULL 2.3.11')
+    args = docopt(__doc__, version='\nPULL 2.3.12')
 
     if args['set']:
         from_dir = r'\\hqnapdcm0734\ofr\ofr_gpo\TOOFR'
