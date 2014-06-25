@@ -627,6 +627,11 @@ def partext(temp_file, file_date):
             continue
         id_seq += 1
         reg_eff_date = get_from_dict(reg.start(), effdates_info)
+
+        # Warn when Pull date is substituted
+        if reg_eff_date[1].find("Pull date:") >= 0:
+            print("Warning: valid date is not found! Look for 'Pull date:' in the final file!")
+
         if reg_eff_date[0]:
             effdate_attrib = reg_eff_date[0].strftime("%Y%m%d")
             effdate_element = reg_eff_date[1]
@@ -647,7 +652,7 @@ def partext(temp_file, file_date):
 
 
 if __name__ == "__main__":
-    args = docopt(__doc__, version='\nPULL 2.3.12')
+    args = docopt(__doc__, version='\nPULL 2.3.13')
 
     if args['set']:
         from_dir = r'\\hqnapdcm0734\ofr\ofr_gpo\TOOFR'
