@@ -615,7 +615,10 @@ def partext(temp_file, file_date):
         reg_prt_num = get_from_dict(reg.start(), prtpage_info)
         regtxt_attrb = ' EFFDATE=\'' + effdate_attrib + '\' ID=\'' + eff_date + '-' + str(id_seq) + \
                        '\' FRPAGE=\'' + vol_num + 'FR' + reg_prt_num[
-                           0] + '\'><EFFDATES>' + effdate_element
+                           0] + '\'><EFFDATES>' + effdate_element + "\n"
+        regtxt_attrb += '<EXT-XREF HREF=\'' + eff_date + '\'' + ' REFID=\'' + str(id_seq) + \
+                        '\'>Link to an amendment published at ' + vol_num + ' FR ' + reg_prt_num[0] + \
+                        ', ' + datetime.strptime(eff_date, "%Y%m%d").strftime('%b. %d, %Y') + '.</EXT-XREF>'
         reg_txt = re.sub(">", regtxt_attrb, reg.group(0), 1)
         new_file_string += reg_txt
     new_file_string = "<CFRDOC ED='XX' REV='XX'>\n\n" + new_file_string + "\n</CFRDOC>"
@@ -626,7 +629,7 @@ def partext(temp_file, file_date):
 
 
 if __name__ == "__main__":
-    args = docopt(__doc__, version='\nPULL 2.3.6')
+    args = docopt(__doc__, version='\nPULL 2.4.0')
 
     if args['set']:
         from_dir = r'\\hqnapdcm0734\ofr\ofr_gpo\TOOFR'
