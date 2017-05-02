@@ -437,6 +437,64 @@ def replace(filename, regexes):
     return
 
 
+def cal_abrv(this_date):
+
+    """Converts month to abbreviation according to GPO Style 9.44
+    @type this_month: str
+
+    @param this_month: zero padded month number to be abbreviated
+
+    @return abrv_month: Abbreviated month
+    """
+
+    this_dt = datetime.strptime(this_date, "%B %d, %Y")
+
+
+    abrv_month = ''
+
+    for case in switch(this_dt.strftime("%m")):
+        if case('01'):
+            abrv_month = "Jan."
+            break
+        if case('02'):
+            abrv_month = "Feb."
+            break
+        if case('03'):
+            abrv_month = "Mar."
+            break
+        if case('04'):
+            abrv_month = "Apr."
+            break
+        if case('05'):
+            abrv_month = "May"
+            break
+        if case('06'):
+            abrv_month = "June"
+            break
+        if case('07'):
+            abrv_month = "July"
+            break
+        if case('08'):
+            abrv_month = "Aug."
+            break
+        if case('09'):
+            abrv_month = "Sept."
+            break
+        if case('10'):
+            abrv_month = "Oct."
+            break
+        if case('11'):
+            abrv_month = "Nov."
+            break
+        if case('12'):
+            abrv_month = "Dec."
+            break
+        if case():
+            sys.exit("Missing month!!!")
+
+    return abrv_month + ' {dt.day}, {dt.year}'.format(dt=this_dt)
+
+
 def move_files(from_dir, to_dir, file_date):
     """Moves the files from one dir to another. Optional date specifies particular date, otherwise today's used
     @type from_dir: str
@@ -609,16 +667,21 @@ def partext(temp_file, file_date):
         if reg_eff_date[0]:
             effdate_attrib = reg_eff_date[0].strftime("%Y%m%d")
             effdate_element = reg_eff_date[1]
+            if len(effdate_element) < 25:
+                effdate_element = cal_abrv(effdate_element)
         else:
             effdate_attrib = "{0:%Y}0000".format(datetime.strptime(eff_date, "%Y%m%d"))
             effdate_element = reg_eff_date[1]
+            if len(effdate_element) < 25:
+                effdate_element = cal_abrv(effdate_element)
         reg_prt_num = get_from_dict(reg.start(), prtpage_info)
         regtxt_attrb = ' EFFDATE=\'' + effdate_attrib + '\' ID=\'' + eff_date + '-' + str(id_seq) + \
                        '\' FRPAGE=\'' + vol_num + 'FR' + reg_prt_num[
                            0] + '\'><EFFDATES>' + effdate_element + "\n"
-        regtxt_attrb += '<EXT-XREF HREF=\'' + eff_date + '\'' + ' REFID=\'' + str(id_seq) + \
-                        '\'>Link to an amendment published at ' + vol_num + ' FR ' + reg_prt_num[0] + \
-                        ', ' + datetime.strptime(eff_date, "%Y%m%d").strftime('%b. %d, %Y') + '.</EXT-XREF>'
+        regtxt_attrb += '<!--<EXT-XREF HREF=\'' + eff_date + '\'' + ' REFID=\'' + str(id_seq) + \
+                        '\'><!--' + effdate_attrib + '-->Link to an amendment published at ' + vol_num + ' FR ' + \
+                        reg_prt_num[0] + ', ' + cal_abrv(datetime.strptime(eff_date,"%Y%m%d").strftime('%B %d, %Y')) + \
+                        '.</EXT-XREF>-->'
         reg_txt = re.sub(">", regtxt_attrb, reg.group(0), 1)
         new_file_string += reg_txt
     new_file_string = "<CFRDOC ED='XX' REV='XX'>\n\n" + new_file_string + "\n</CFRDOC>"
@@ -629,7 +692,7 @@ def partext(temp_file, file_date):
 
 
 if __name__ == "__main__":
-    args = docopt(__doc__, version='\nPULL 2.4.0')
+    args = docopt(__doc__, version='\nPULL 2.5.0')
 
     if args['set']:
         from_dir = r'\\hqnapdcm0734\ofr\ofr_gpo\TOOFR'
