@@ -704,7 +704,7 @@ def partext(temp_file, file_date):
             if len(effdate_element) < 25:
                 effdate_element = cal_abrv(effdate_element)
         reg_prt_num = get_from_dict(reg.start(), prtpage_info)
-        regtxt_attrb = ' EFFDATE=\'' + effdate_attrib + '\' ID=\'' + eff_date + '-' + str(id_seq) + \
+        regtxt_attrb = ' ID=\'' + eff_date + '-' + str(id_seq) + \
                        '\' FRPAGE=\'' + vol_num + 'FR' + reg_prt_num[
                            0] + '\'><EFFDATES>' + effdate_element + "\n"
         regtxt_attrb += '<!--<EXT-XREF HREF=\'' + eff_date + '\'' + ' REFID=\'' + str(id_seq) + \
@@ -721,7 +721,7 @@ def partext(temp_file, file_date):
 
 
 if __name__ == "__main__":
-    args = docopt(__doc__, version='\nPULL 2.5.3')
+    args = docopt(__doc__, version='\nPULL 2.5.4')
 
     if args['set']:
         from_dir = r'\\hqnapdcm0734\ofr\ofr_gpo\TOOFR'
