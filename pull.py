@@ -1,13 +1,13 @@
 """Usage:
   pull.py set
-  pull.py auto <from> <to> [--date=<MMDDYY>]
+  pull.py auto <to> [--date=<MMDDYY>]
   pull.py move <from> <to> [--date=<MMDDYY>]
   pull.py (-h | --help)
   pull.py (-v | --version)
 
 Options:
   set                   Executes routine with set directories and today's date
-  auto                  Executes routine with specified directories and date
+  auto                  Executes routine with specified directory and date
   move                  Copies and combines SGM files from source to dest.
   --date=<MMDDYY>       Optional date of the files to pull
   -h --help             Show this screen.
@@ -327,6 +327,11 @@ def alpha_array():
         [re.compile(re.escape(" ROTATION='P'"), re.MULTILINE), ""],
         [re.compile("<\?USGPO Galley Info Start\:.*?Galley Info End\?>", re.DOTALL), ""],
         [re.compile("\r", re.MULTILINE), "\n"],
+        [re.compile(re.escape("'PART '"), re.DOTALL), "' PART='"],
+        [re.compile(re.escape("TITLE=' "), re.DOTALL), "TITLE='"],
+        [re.compile(re.escape(" ' PART="), re.DOTALL), "' PART="],
+        [re.compile(re.escape("PART=' "), re.DOTALL), "PART='"],
+        [re.compile(re.escape(" '>"), re.DOTALL), "'>"],
     ]
     return list_regex
 
@@ -367,7 +372,7 @@ def omega_array():
         [re.compile(re.escape("<E T='51'>17</E>"), re.DOTALL), "<SU>17</SU>"],
         [re.compile(re.escape("<SUBJECT>"), re.MULTILINE), "\n<SUBJECT>"],
         [re.compile(re.escape("</CFRDOC>"), re.DOTALL), "\n\n</CFRDOC>"],
-        # [re.compile("(?<!\n{2,n})<SECTION>", re.DOTALL), "\n<SECTION>"],
+        [re.compile("(?<!\n\n)<SECTION>", re.DOTALL), "\n<SECTION>"],
         [re.compile("<PRTPAG.*?>\n?", re.MULTILINE), ""],
         [re.compile("\n{0,2}^(<SUBPART>.*\n|<PART>.*\n|<HD1>.*\n)?(<SECTION>.*\n)?.*\n.*?<SUBJECT>\[?Removed.*\]?\.?",
                     re.MULTILINE), ""],
@@ -447,7 +452,11 @@ def cal_abrv(this_date):
     @return abrv_month: Abbreviated month
     """
 
-    this_dt = datetime.strptime(this_date, "%B %d, %Y")
+    try:
+        this_dt = datetime.strptime(this_date, "%B %d, %Y")
+    except ValueError:
+        print "Date has an invalid format and will be omitted: " + this_date
+        return ""
 
 
     abrv_month = ''
@@ -564,9 +573,9 @@ def move_files(from_dir, to_dir, file_date):
         if case():
             sys.exit("Missing month!!!")
 
-    dest_file = open(os.path.join(to_dir, sYY + sMMM + sDD), 'wb')
     file_set = glob.glob(os.path.join(from_dir, sDD + sMM + 'R*.SGM'))
     if file_set:
+        dest_file = open(os.path.join(to_dir, sYY + sMMM + sDD), 'wb')
         for filename in file_set:
             if os.path.isfile(filename):
                 if not os.path.exists(to_dir):
@@ -574,9 +583,9 @@ def move_files(from_dir, to_dir, file_date):
                 shutil.copyfileobj(open(filename, 'rb'), dest_file)
             else:
                 sys.exit("Input is not a file!!! -> " + filename)
+        dest_file.close()
     else:
         sys.exit("No input files located for a specified date!!!")
-    dest_file.close()
     return dest_file
 
 
@@ -634,13 +643,25 @@ def partext(temp_file, file_date):
             eff_date_str = re.findall("(\w*) (\d{1,2}), (\d{4})", eff_date_itr.group())
 
             if len(eff_date_str) == 1:
-                effdates_info[eff_date_itr.start()].append(
-                    datetime.strptime(" ".join(str(i) for i in eff_date_str[0]), "%B %d %Y"))
-                effdates_info[eff_date_itr.start()].append("{0:%B} {0.day}, {0:%Y}".format(
-                    datetime.strptime(" ".join(str(i) for i in eff_date_str[0]), "%B %d %Y")))
+                try:
+                    effdates_info[eff_date_itr.start()].append(
+                        datetime.strptime(" ".join(str(i) for i in eff_date_str[0]), "%B %d %Y"))
+                    effdates_info[eff_date_itr.start()].append("{0:%B} {0.day}, {0:%Y}".format(
+                        datetime.strptime(" ".join(str(i) for i in eff_date_str[0]), "%B %d %Y")))
+                except ValueError as err:
+                    print(err)
+                    print("Please correct Effective Dates in a final file if/where December 31, 1969 appears!!!")
+                    effdates_info[eff_date_itr.start()].append(datetime.fromtimestamp(0))
+                    effdates_info[eff_date_itr.start()].append(
+                        "{0:%B} {0.day}, {0:%Y}".format(datetime.fromtimestamp(0)))
             elif len(eff_date_str) > 1:
-                effdates_info[eff_date_itr.start()].append(
-                    datetime.strptime(" ".join(str(i) for i in eff_date_str[0]), "%B %d %Y"))
+                try:
+                    effdates_info[eff_date_itr.start()].append(
+                        datetime.strptime(" ".join(str(i) for i in eff_date_str[0]), "%B %d %Y"))
+                except ValueError as err:
+                    print(err)
+                    print("Please correct Effective Dates in a final file where December 31, 1969 appears!!!")
+                    effdates_info[eff_date_itr.start()].append(datetime.fromtimestamp(0))
                 effdates_info[eff_date_itr.start()].append(eff_date_itr.group(1))
             else:
                 effdates_info[eff_date_itr.start()].append(None)
@@ -662,8 +683,16 @@ def partext(temp_file, file_date):
     # Retrieve REGTEXT clauses and attach dates and page number tags and attributes to them
     id_seq = 0
     for reg in re.finditer('(<REGTEXT TITLE.*?</REGTEXT>)', file_string, re.S):
+        # Eliminate certain specific REGTEXT buckets
+        if re.search("continues to read", reg.group(0)) and not re.search("revised|revising|amend|remove|add", reg.group(0)):
+            continue
         id_seq += 1
         reg_eff_date = get_from_dict(reg.start(), effdates_info)
+
+        # Warn when Pull date is substituted
+        if reg_eff_date[1].find("Pull date:") >= 0:
+            print("Warning: valid date is not found! Look for 'Pull date:' in the final file!")
+
         if reg_eff_date[0]:
             effdate_attrib = reg_eff_date[0].strftime("%Y%m%d")
             effdate_element = reg_eff_date[1]
@@ -682,7 +711,7 @@ def partext(temp_file, file_date):
                         '\'><!--' + effdate_attrib + '-->Link to an amendment published at ' + vol_num + ' FR ' + \
                         reg_prt_num[0] + ', ' + cal_abrv(datetime.strptime(eff_date,"%Y%m%d").strftime('%B %d, %Y')) + \
                         '.</EXT-XREF>-->'
-        reg_txt = re.sub(">", regtxt_attrb, reg.group(0), 1)
+        reg_txt = re.sub(">", regtxt_attrb, reg.group(0), count=1)
         new_file_string += reg_txt
     new_file_string = "<CFRDOC ED='XX' REV='XX'>\n\n" + new_file_string + "\n</CFRDOC>"
     new_file_name = os.path.join(os.path.dirname(temp_file), eff_date + ".AMD")
@@ -692,7 +721,7 @@ def partext(temp_file, file_date):
 
 
 if __name__ == "__main__":
-    args = docopt(__doc__, version='\nPULL 2.5.0')
+    args = docopt(__doc__, version='\nPULL 2.5.3')
 
     if args['set']:
         from_dir = r'\\hqnapdcm0734\ofr\ofr_gpo\TOOFR'
@@ -711,8 +740,8 @@ if __name__ == "__main__":
                 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
 
     elif args['auto']:
+        from_dir = r'\\hqnapdcm0734\ofr\ofr_gpo\TOOFR'
         schema = Schema({
-            '<from>': And(os.path.exists, error='\n<from> directory must exist!!!'),
             '<to>': And(os.path.exists, error='\n<to> directory must exist!!!'),
             '--date': Or(None, And(lambda n: datetime.strptime(n, "%m%d%y")),
                          error='\n--date= must be in a <MMDDYY> format!!!'),
@@ -722,7 +751,7 @@ if __name__ == "__main__":
             args = schema.validate(args)
         except SchemaError as e:
             sys.exit(e)
-        temp_file = move_files(args['<from>'], args['<to>'], args['--date'])
+        temp_file = move_files(from_dir, args['<to>'], args['--date'])
         alpha(temp_file.name)
         final_file = partext(temp_file.name, args['--date'])
         omega(final_file)
