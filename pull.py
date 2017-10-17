@@ -684,7 +684,8 @@ def partext(temp_file, file_date):
     id_seq = 0
     for reg in re.finditer('(<REGTEXT TITLE.*?</REGTEXT>)', file_string, re.S):
         # Eliminate certain specific REGTEXT buckets
-        if re.search("continues to read", reg.group(0)) and not re.search("revised|revising|amend|remove|add", reg.group(0)):
+        if re.search("^(?=.*<P>\d\..*?continues to read as follows:)(?!.*amend|.*add|.*revised|.*remove|.*revising).*",
+                     reg.group(0), re.MULTILINE):
             continue
         id_seq += 1
         reg_eff_date = get_from_dict(reg.start(), effdates_info)
@@ -721,7 +722,7 @@ def partext(temp_file, file_date):
 
 
 if __name__ == "__main__":
-    args = docopt(__doc__, version='\nPULL 2.5.4')
+    args = docopt(__doc__, version='\nPULL 2.5.5')
 
     if args['set']:
         from_dir = r'\\hqnapdcm0734\ofr\ofr_gpo\TOOFR'
